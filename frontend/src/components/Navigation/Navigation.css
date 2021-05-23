@@ -1,0 +1,62 @@
+/* NavBar basic setup */
+body{
+    margin: 0px;
+}
+.navbar-li{
+    display: flex;
+    justify-content:space-between;
+    align-items: center; 
+    list-style: none;
+    position: sticky;
+    background-color: rgba(147,112,75,.3);
+    height: 64px;
+    margin: 0px; 
+}
+.home-container{
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+}
+.session-container {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+/* Buttons */
+.navbar-button{
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+#signUpButton{
+    color: black;
+    background-color: white;
+    padding: 10px;
+    border-radius: 7px;
+    width: 90px;
+    align-self: center;
+    margin-right: 30px;
+    margin-left: 30px;
+    height: 15px; 
+    text-align: center;
+}
+#signUpButton:hover{
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}
+#home-button{
+    font-size: x-large;
+}
+#logInButton{
+    padding-top: 10px;
+}
+
+/* Images */
+#cameraImage{
+    margin-left: 30px;
+    margin-right: 8px;
+    margin-top: 5px;
+}

@@ -1,11 +1,17 @@
+// Imports from external libraries
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import LoginFormPage from "./components/LoginFormPage";
-import SignupFormPage from "./components/SignupFormPage";
+
+// Imports from internal files
 import * as sessionActions from "./store/session";
 import Navigation from './components/Navigation';
+import SplashPage from "./components/SplashPage";
+import LoginFormPage from "./components/LoginFormPage";
+import SignupFormPage from "./components/SignupFormPage";
+import Footer from "./components/Footer";
 
+// App function declared
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -18,6 +24,12 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path="/">
+            <SplashPage />
+          </Route>
+          {/* <Route path="/home">
+            <HomePage />
+          </Route> */}
           <Route path="/login">
             <LoginFormPage />
           </Route>
@@ -26,6 +38,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer/>
     </>
   );
 }
