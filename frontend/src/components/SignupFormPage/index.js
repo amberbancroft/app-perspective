@@ -46,38 +46,46 @@ const CreateUser = () => {
   //   };
 
   return (
-    <div>
-      <h1>AWS S3 Express-React Demo</h1>
+    <div className='form-container'>
       {errors.length > 0 &&
         errors.map((error) => <div key={error}>{error}</div>)}
       <form
         style={{ display: "flex", flexFlow: "column" }}
         onSubmit={handleSubmit}
       >
+        <i className="fas fa-camera-retro" id='cameraImage2'></i>
+        <h2 id='welcome'>Sign Up</h2>
         <label>
+        <div id="user-email" className="loginInput">
           <input
             type="text"
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+          </div>
         </label>
         <label>
+        <div id="user-email" className="loginInput">
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          </div>
         </label>
         <label>
+        <div id="user-email" className="loginInput">
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          </div>
         </label>
+        <div id="user-email" className="loginInput">
         <label>
           <input type="file" onChange={updateFile} />
         </label>
@@ -88,7 +96,8 @@ const CreateUser = () => {
               multiple
               onChange={updateFiles} />
           </label> */}
-        <button type="submit">Create User</button>
+        <button id='logIn-btn' type="submit">Create User</button>
+        </div>
       </form>
       <div>
         {user && (

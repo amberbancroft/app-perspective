@@ -1,16 +1,16 @@
 .inspiration-container{
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
+    display: flex;
+    /* justify-content: center;    */
+    align-items: center;
+    /* position: relative; */
+    /* top: 0; */
+    /* left: 0; */
+    /* width: 100%; */
     height: 100vh;
     background: url(./images/img_1.JPG);
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;   
-    align-items: center;
+    background-position: center;  
 } 
 
 .inspiration-container h2{

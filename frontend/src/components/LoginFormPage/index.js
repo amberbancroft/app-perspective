@@ -26,30 +26,39 @@ function LoginFormPage() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label>
-                Username or Email
-        <input
-                    type="text"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Password
-        <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <button type="submit">Log In</button>
-        </form>
+        <div className='form-container'>
+            <form onSubmit={handleSubmit}>
+                <ul>
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+                <i className="fas fa-camera-retro" id='cameraImage2'></i>
+                <h2 id='welcome'>Welcome Back!</h2>
+                {/* <label>
+                    Username or Email */}
+
+                <div id="user-email" className="loginInput">
+            <input
+                        type="text"
+                        value={credential}
+                        onChange={(e) => setCredential(e.target.value)}
+                        required
+                    />
+                {/* </label> */}
+                </div>
+                {/* <label>
+                    Password */}
+                <div id="password" className="loginInput">
+            <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                {/* </label> */}
+                <button id='logIn-btn' type="submit">Sign In</button>
+            </form>
+        </div>
     );
 }
 
