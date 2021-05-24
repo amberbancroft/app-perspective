@@ -1,12 +1,13 @@
+// Imports
 const express = require('express')
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User } = require('../../db/models');
 
+// validation
 const validateLogin = [
   check('credential')
     .exists({ checkFalsy: true })
@@ -43,13 +44,6 @@ router.post(
   }),
 );
 
-//Demo Login - API route that can only be requested via Demo button
-router.get("/demo", asyncHandler(async(req,res) => {
-  const demoUser = await db.User.findByPk(1);
-  loginUser(req, res, demoUser);
-  req.session.save(() => res.redirect("/home"))
-}))
-
 // Log out
 router.delete(
     '/',
@@ -72,7 +66,6 @@ router.get(
       } else return res.json({});
     }
 );
-
-  
-  
+ 
+// Exports
 module.exports = router;
