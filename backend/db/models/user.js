@@ -4,6 +4,13 @@ const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 256]
+      },
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -16,12 +23,9 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
-    email: {
+    imgUrl: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [3, 256]
-      },
     },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
@@ -86,7 +90,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Photo, { foreignKey: 'userId' });
   };
   return User;
 };

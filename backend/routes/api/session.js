@@ -20,7 +20,7 @@ const validateLogin = [
 
 // Log in
 router.post(
-  '/',
+  '/', 
   validateLogin,
   asyncHandler(async (req, res, next) => {
     const { credential, password } = req.body;
@@ -42,6 +42,13 @@ router.post(
     });
   }),
 );
+
+//Demo Login - API route that can only be requested via Demo button
+router.get("/demo", asyncHandler(async(req,res) => {
+  const demoUser = await db.User.findByPk(1);
+  loginUser(req, res, demoUser);
+  req.session.save(() => res.redirect("/home"))
+}))
 
 // Log out
 router.delete(
