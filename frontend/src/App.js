@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from './components/Navigation';
 import SplashPage from "./components/SplashPage";
+import Home from "./components/SignedHomePage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Footer from "./components/Footer";
@@ -27,9 +28,9 @@ function App() {
           <Route exact path="/">
             <SplashPage />
           </Route>
-          {/* <Route path="/home">
-            <HomePage />
-          </Route> */}
+          <Route path="/home">
+            <Home />
+          </Route>
           <Route path="/login">
             <LoginFormPage />
           </Route>

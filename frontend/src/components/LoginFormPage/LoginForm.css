@@ -7,22 +7,23 @@
     background: url(../SplashPage/images/img_1.JPG);
     background-size: cover;
     background-position: center;
+    
 }
-form{
+.form{
     display: flex;
     flex-direction: column;
-    width: 70vw;
-    height: 80vh;
+    width: 60vw;
+    height: 70vh;
     justify-content: center;
     align-items: center;
     text-align: center;
     border-radius: 10px;
-    font-size: 8vw;
+    font-size: 180%;
     color: black;
     background: white;
     padding: 20px 40px;
     mix-blend-mode: screen;
-    border-radius: 10px;
+    border-radius: 10px;   
 }
 input{
     margin-top: 20px;

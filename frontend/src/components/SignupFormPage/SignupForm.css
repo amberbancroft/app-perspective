@@ -8,7 +8,7 @@
     background-size: cover;
     background-position: center;
 }
-form{
+.form{
     display: flex;
     flex-direction: column;
     width: 70vw;
@@ -17,7 +17,6 @@ form{
     align-items: center;
     text-align: center;
     border-radius: 10px;
-    font-size: 8vw;
     color: black;
     background: white;
     padding: 20px 40px;

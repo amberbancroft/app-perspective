@@ -1,36 +1,51 @@
+// Importing
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import "./HomePage.css"
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPhotos } from '../../store/photo';
+import { useHistory } from 'react-router-dom';
 
-function Home({ isLoaded }){
-    // const sessionUser = useSelector(state => state.session.user);
+// Home component 
+function Home(){
+
+	const dispatch = useDispatch();
+	const history = useHistory();
+
+	const [title, setTitle] = useState('');
+	const [imgUrl, setImgUrl] = useState('');
+
+	useEffect(() => {
+		dispatch(getPhotos());
+	}, [dispatch]);
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+	
+		// const payload = {
+		//   no,
+		//   attack,
+		//   defense,
+		//   imageUrl,
+		//   name,
+		//   type,
+		//   move1,
+		//   move2,
+		//   moves: [move1, move2],
+		// };
+	
+		let createdPokemon;
+		if (createdPokemon) {
+		  history.push(`/pokemon/${createdPokemon.id}`);
+		  hideForm();
+		}
+	};
+
+	return (
+		<div className="img-list">
+		</div>
+	);
+};
   
-    // let sessionLinks;
-    // if (sessionUser) {
-    //   sessionLinks = (
-    //     <ProfileButton className='navbar-button' user={sessionUser} />
-    //   );
-    // } else {
-    //   sessionLinks = (
-    //     <>
-    //       <NavLink className='navbar-button' id='logInButton'to="/login">Log In</NavLink>
-    //       <NavLink className='navbar-button' id='signUpButton' to="/signup">Sign Up</NavLink>
-    //     </>
-    //   );
-    // }
-  
-    // return (
-    
-    //     <div className='navbar-li'>
-    //        <div className='home-container'>
-    //       <i class="fas fa-camera-retro" id='cameraImage'></i>
-    //       <NavLink className='navbar-button' id='home-button' exact to="/">Perspective</NavLink>
-    //       </div>
-    //       <div className='session-container'>
-    //       {isLoaded && sessionLinks}
-    //       </div>
-    //       </div>
-    // );
-}
-  
+// Exporting
 export default Home;

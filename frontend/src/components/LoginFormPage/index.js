@@ -27,14 +27,14 @@ function LoginFormPage() {
 
     return (
         <div className='form-container'>
-            <form onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
                 <ul>
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
                 <i className="fas fa-camera-retro" id='cameraImage2'></i>
                 <h2 id='welcome'>Welcome Back!</h2>
-                {/* <label>
-                    Username or Email */}
+                <label>
+                    Username or Email
 
                 <div id="user-email" className="loginInput">
             <input
@@ -43,10 +43,10 @@ function LoginFormPage() {
                         onChange={(e) => setCredential(e.target.value)}
                         required
                     />
-                {/* </label> */}
                 </div>
-                {/* <label>
-                    Password */}
+                </label>
+                <label>
+                    Password
                 <div id="password" className="loginInput">
             <input
                         type="password"
@@ -55,7 +55,7 @@ function LoginFormPage() {
                         required
                     />
                 </div>
-                {/* </label> */}
+                </label>
                 <button id='logIn-btn' type="submit">Sign In</button>
             </form>
         </div>

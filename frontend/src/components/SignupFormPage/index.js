@@ -50,6 +50,7 @@ const CreateUser = () => {
       {errors.length > 0 &&
         errors.map((error) => <div key={error}>{error}</div>)}
       <form
+        className="form"
         style={{ display: "flex", flexFlow: "column" }}
         onSubmit={handleSubmit}
       >
