@@ -1,13 +1,13 @@
 const router = require('express').Router();
-// const sessionRouter = require('./session.js');
-// const usersRouter = require('./users.js');
-const { Photo } = require("../../db/models");
+const { Photo, User } = require("../../db/models");
 
 //Home Page
-router.get('/home', (req, res) => {
+router.get('/', async (req, res) => {
     // Find all photos in backend
     // returns an array of photo models object
-    const photoArray = await Photo.findAll({}); 
+    const photoArray = await Photo.findAll({
+        include: User
+    }); 
 
     // Passing the Array to the store in the frontend
     return res.json({

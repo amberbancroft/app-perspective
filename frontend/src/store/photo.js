@@ -1,33 +1,38 @@
+import { csrfFetch } from "./csrf";
+
+// variable declaration
 const LOAD = 'photos/LOAD';
 
-const load = list => ({
-    type: LOAD,
-    list,
+// action
+export const load = photos => ({
+        type: LOAD,
+        photos,
 });
 
+// Thunk
 export const getPhotos = () => async dispatch => {
-    const response = await fetch(`/api/home`);
+    const response = await csrfFetch(`/api/home`);
   
     if (response.ok) {
-      const list = await response.json();
-      dispatch(load(list));
+      const photos = await response.json();
+    //   console.log("list here", photos);
+      dispatch(load(photos));
     }
 };
-
-const photoReducer = (state = initialState, action) => {
+const initialState = {};
+// Reducer- updates the current state
+export default function photoReducer(state = initialState, action){
     switch (action.type) {
       case LOAD: {
             const allPhotos = {};
-                action.list.forEach(photo => {
-                    allPhotos[photo.id] = photo;
+            action.photos.photoArray.forEach(photo => {
+                allPhotos[photo.id] = photo;
             });
-            return {
-                ...allPhotos,
-                ...state,
-                list: sortList(action.list),
-            };
+            return allPhotos
+                // ...state,
+            // };
         }
         default:
-        return state;
+            return state;
     } 
 };

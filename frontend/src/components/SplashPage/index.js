@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 // import React from 'react';
 import DemoUser from "../DemoUser"
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import "./SplashPage.css";
 
 function SplashPage(){
