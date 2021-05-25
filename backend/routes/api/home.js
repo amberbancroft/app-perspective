@@ -11,8 +11,7 @@ router.get('/', async (req, res) => {
 
     // Passing the Array to the store in the frontend
     return res.json({
-        photoArray,
-        
+        photoArray, 
     });
 });
 
