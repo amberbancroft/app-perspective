@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { Photo, User } = require('../../db/models');
 const { singleMulterUpload } = require('../../awsS3');
 
 const router = express.Router();
@@ -52,6 +52,23 @@ router.post(
   })
 );
 
+//Photos for users profile page
+router.get('/:id(\\d+)', async (req, res) => {
+  // getting userId
+  // req.params.id grabs the id from the url
+  const userId = parseInt(req.params.id,10);
   
-
+  // Find all photos the belong to that user
+  const userPhotos = await Photo.findAll({
+    where: {
+        userId
+    },
+    include: User,
+  });
+  console.log("***************************************", userPhotos);
+  // Passing the Array to the store in the frontend
+  return res.json(userPhotos);
+});
+ 
+// Exports
 module.exports = router;

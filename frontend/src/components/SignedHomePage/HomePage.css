@@ -1,0 +1,38 @@
+/* Basic page formating */
+.img-list-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 6px;
+    column-gap: 6px;
+    margin: 6px 0px;
+}
+.header{
+    display: flex;
+    justify-content: left;
+    width:100%;
+    margin: 10px 115px;
+    font-weight: bold;
+}
+.titles{
+    position: absolute;
+    font-weight: bold;
+    color: white;
+    bottom: 0px;
+    background: rgba(0, 0, 0, 0.3);
+    width: 95%;
+    transition: .5s ease;
+    opacity:0;
+    font-size: 15px;
+    padding: 10px;
+    text-align: left;
+}
+
+.img-container{
+    position: relative;
+}
+
+.img-container:hover .titles{
+    opacity: 1;
+}

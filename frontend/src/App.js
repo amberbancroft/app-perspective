@@ -8,6 +8,7 @@ import * as sessionActions from "./store/session";
 import Navigation from './components/Navigation';
 import SplashPage from "./components/SplashPage";
 import Home from "./components/SignedHomePage";
+import ProfilePage from "./components/ProfilePage"
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Footer from "./components/Footer";
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/users/:userId">
+            <ProfilePage />
           </Route>
           <Route path="/login">
             <LoginFormPage />

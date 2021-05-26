@@ -1,8 +1,10 @@
 {
-  "short_name": "React Template",
-  "name": "Create React App Template",
+  "short_name": "Perspective",
+  "name": "Perspective",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
+
+

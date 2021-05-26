@@ -1,15 +1,16 @@
+// Imports
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 // importing the router from the home.js in order to connect to the store
 const homeRouter = require("./home.js");
+const photoRouter = require("./photos");
 
 router.use('/session', sessionRouter);
-
 router.use('/users', usersRouter);
-
 // using the imported router
 router.use("/home", homeRouter);
+router.use("/photos", photoRouter);
 
 router.post('/test', function (req, res) {
     res.json({ requestBody: req.body });
@@ -49,4 +50,5 @@ router.get(
     }
 );
 
+// Exporting
 module.exports = router;
