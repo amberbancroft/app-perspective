@@ -1,43 +1,44 @@
 // Importing
-import React from 'react';
+import React, { useState } from 'react';
 import "./editPhoto.css"
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadSinglePhotoForEdit } from '../../store/photo';
-import { useParams } from "react-router-dom";
+import { getPhotoForEdit, deleteSinglePhoto} from '../../store/photo';
+import { useHistory, useParams } from "react-router-dom";
 
-// ProfilePage component 
+
 function EditPhoto(){
-	// Call the reducer to get the most current state
-	// connects the backend to the front end
-	// importing the reducer
-    const { photoId, title } = useParams();
+
+	// gets that one only for ids
+    const { photoId } = useParams();
 	const photo = useSelector(state => state.photos[photoId]);
-	// const title = useSelector(state => state.photos[title]);
-    // use what is defined with in the index.js in the store for reducer
 
-	// call built in hooks to redirect and sends the updates
 	const dispatch = useDispatch();
-	// const history = useHistory();
-	// const sessionUser = useSelector(state => state.session.user);
-    const [title, setTitle] = useState('');
-	
-	// is basically an event listener that waits for the page to load
-	// call for the updated information using dispatch
-	useEffect(() => {
-		dispatch(loadSinglePhotoForEdit(photoId));
-	}, [dispatch, photoId]);
+	const history = useHistory();
+    const [title, setTitle] = useState(photo.title);
 
-    
+	// Cant use useEffect for an update
+	const UpdateHelperFunction = (e) => {
+		e.preventDefault();
+		dispatch(getPhotoForEdit({title, photoId}));
+		history.push(`/home`);
+	}
+
+	const deleteHelperFunction = (e) => {
+		e.preventDefault();
+		dispatch(deleteSinglePhoto({ photoId }));
+		history.push(`/home`);
+	}
+
+
 	return (
 		<>
         <div className='control-bar'>
+			<form onSubmit={UpdateHelperFunction}>
             <h2 id='header'>{photo?.title}</h2>
             <div className='button-container'>
-                <button className="control-bar-button"> Save </button>
-                <button className="control-bar-button"> Delete </button>
+                <button type='submit' className="control-bar-button"> Save </button>
+                <button className="control-bar-button" onClick={deleteHelperFunction}> Delete </button>
             </div>
-			<form>
 				<label>
                     New Title
                 <div id="title-photo" className="loginInput">

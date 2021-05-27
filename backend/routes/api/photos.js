@@ -46,32 +46,30 @@ router.get('/:id(\\d+)/edit', async (req, res) => {
     return res.json(singlePhotoForEdit);
 });
 
-router.patch(
+router.put(
     "/:id(\\d+)/edit",
-    asyncHandler(async (req, res, next) => {
+    async (req, res) => {
       const { title } = req.body;
-      const userId = parseInt(req.params.id,10);
-      const currentUser = await db.User.findByPk(userId);
+      const photoId = parseInt(req.params.id,10);
+      const currentPhoto = await Photo.findByPk(photoId);
   
-      await currentUser.update({
+      await currentPhoto.update({
         title
       });
   
-      await currentUser.save();
-  
-      res.json(userId);
-    })
-);
+      res.json(currentPhoto);
+})
 
-router.delete('/:id(\\d+)/delete', asyncHandler(async(req, res) => {
+//Delete single photo
+router.delete('/:id(\\d+)/delete', async (req, res) => {
     const photoId = parseInt(req.params.id,10);
 
-    const deletePhoto = await db.Photo.destroy({
+    const deletePhoto = await Photo.destroy({
       where: photoId 
     })
 
     res.json(deletePhoto);
-}));
+});
 
 
 // Exports

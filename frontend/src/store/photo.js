@@ -24,9 +24,9 @@ export const loadSinglePhoto = photo => ({
   photo,
 });
 
-export const loadSinglePhotoForEdit = title => ({
+export const loadSinglePhotoForEdit = photo => ({
   type: EDITING,
-  title,
+  photo,
 });
 
 export const deletePhoto = photo => ({
@@ -65,28 +65,26 @@ export const getPhoto = (photoId) => async dispatch => {
   }
 };
 
-export const getPhotoForEdit = (photoId) => async dispatch => {
-  const response = await csrfFetch(`/api/photos/${photoId}/edit`);
-  // let boolean = false;
-
-  //if defined
-  // if(req.session.auth) {
-    // boolean = userId === req.session.auth.userId;
+export const getPhotoForEdit = (photo) => async dispatch => {
+  const response = await csrfFetch(`/api/photos/${photo.photoId}/edit`, {
+    method: "PUT",
+    headers: { 'Content-Type': "application/json" },
+    body: JSON.stringify(photo)
+  });
 
     if (response.ok) {
       const title = await response.json();
-      // console.log("single photo", photo);
+      // console.log("this is the title", title);
       dispatch(loadSinglePhotoForEdit(title));
     }
-  // }
 };
 
-export const deletePhoto = (photoId) => async dispatch => {
+export const deleteSinglePhoto = (photoId) => async dispatch => {
   const response = await csrfFetch(`/api/photos/${photoId}/delete`);
 
   if (response.ok) {
     const photo = await response.json();
-    // console.log("single photo", photoData);
+    console.log("!!!!!!!!!!!!!!!!!!!!", photo);
     dispatch(deletePhoto(photo));
   }
 };
