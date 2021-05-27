@@ -15,6 +15,22 @@ router.get('/', async (req, res) => {
     });
 });
 
+// Individual photos page
+router.get('/:id(\\d+)', async (req, res) => {
+    // extract the photoId
+    const photoId = parseInt(req.params.id,10);
+    // console.log("***************************************", photoId);
+
+    // Find all photos in backend
+    const singlePhoto = await Photo.findByPk(photoId,  {
+        include: User
+    })
+    console.log("***************************************", singlePhoto);
+
+    // Passing the Array to the store in the frontend
+    return res.json(singlePhoto);
+});
+
 
 
 // Exports

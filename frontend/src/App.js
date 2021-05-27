@@ -9,6 +9,7 @@ import Navigation from './components/Navigation';
 import SplashPage from "./components/SplashPage";
 import Home from "./components/SignedHomePage";
 import ProfilePage from "./components/ProfilePage"
+import PhotoPage from "./components/PhotoPage"
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Footer from "./components/Footer";
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/users/:userId">
             <ProfilePage />
+          </Route>
+          <Route path="/photos/:photoId">
+            <PhotoPage />
           </Route>
           <Route path="/login">
             <LoginFormPage />

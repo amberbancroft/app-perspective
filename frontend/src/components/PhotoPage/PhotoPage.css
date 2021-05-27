@@ -1,0 +1,35 @@
+
+.img-container-2{
+    height: 700px;
+    display: flex;
+    justify-content: center;
+}
+.solo-photo{
+    height: 690px;
+    display: flex;
+    justify-content: center;
+}
+.control-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.control-bar-button{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 7px;
+    width: 90px;
+    align-self: center;
+    margin: 2px 5px;
+}
+/* .control-bar-button:hover{
+    background-color: rgba(147,112,75,.3);;
+    color: white;
+    transition: 0.5s;
+} */
+.button-container{
+    margin-left: 140px;
+}

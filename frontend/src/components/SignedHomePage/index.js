@@ -4,6 +4,7 @@ import "./HomePage.css"
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPhotos } from '../../store/photo';
+import { Link } from 'react-router-dom';
 // import { useHistory } from 'react-router-dom';
 
 // Home component 
@@ -29,17 +30,21 @@ function Home(){
 
 
 	return (
+		<>
+		<h2 className="header">Dare To Explore</h2>
 		<div className="img-list-container">
-			<h2 className="header">Dare To Explore</h2>
 			{Object.values(photosList).map(photo => {
 				return (
 					<div className='img-container'>
-						<img className="individual-photo" src={photo.imgUrl} alt={`${photo.title}`} height="300px" width="400px"/>
+						<Link to={`photos/${photo.id}`}>
+							<img className="individual-photo" src={photo.imgUrl} alt={`${photo.title}`} height="300px" width="400px"/>
+						</Link>
 						<p className="titles">{photo.title}</p>
 					</div>
 				)
 			})}
 		</div>
+		</>
 	);
 };
   

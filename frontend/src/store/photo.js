@@ -4,6 +4,7 @@ import { csrfFetch } from "./csrf";
 // variable declaration
 const LOAD = 'photos/LOAD';
 const PROFILE = 'photos/PROFILE';
+const LOADING = 'photo/LOADING';
 
 // actions
 export const load = photos => ({
@@ -14,6 +15,11 @@ export const load = photos => ({
 export const profile = userPhotos => ({
   type: PROFILE,
   userPhotos,
+});
+
+export const loadSinglePhoto = photo => ({
+  type: LOADING,
+  photo,
 });
 
 // Thunks
@@ -32,8 +38,18 @@ export const getUserPhotos = (userId) => async dispatch => {
 
   if (response.ok) {
     const userPhotos = await response.json();
-    console.log("user photo list here", userPhotos);
+    // console.log("user photo list here", userPhotos);
     dispatch(profile(userPhotos));
+  }
+};
+
+export const getPhoto = (photoId) => async dispatch => {
+  const response = await csrfFetch(`/api/photos/${photoId}`);
+
+  if (response.ok) {
+    const photoData = await response.json();
+    console.log("single photo", photoData);
+    dispatch(loadSinglePhoto(photoData));
   }
 };
 
@@ -42,7 +58,7 @@ export const getUserPhotos = (userId) => async dispatch => {
 export default function photoReducer(state = {}, action){
     switch (action.type) {
       case LOAD: {
-            const allPhotos = {};
+            const allPhotos = {...state};
             action.photos.photoArray.forEach(photo => {
                 allPhotos[photo.id] = photo;
             });
@@ -57,7 +73,13 @@ export default function photoReducer(state = {}, action){
         return allUserPhotos
       }
 
+      case LOADING: {
+        const singlePhoto = {...state};
+        singlePhoto[action.photo.id] = action.photo;
+        return singlePhoto
+      }
+
         default:
-            return state;
+          return state;
     } 
 };

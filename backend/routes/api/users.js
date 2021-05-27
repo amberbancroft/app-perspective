@@ -65,7 +65,7 @@ router.get('/:id(\\d+)', async (req, res) => {
     },
     include: User,
   });
-  console.log("***************************************", userPhotos);
+  // console.log("***************************************", userPhotos);
   // Passing the Array to the store in the frontend
   return res.json(userPhotos);
 });

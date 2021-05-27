@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserPhotos } from '../../store/photo';
 import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 // ProfilePage component 
 function ProfilePage(){
@@ -27,16 +28,23 @@ function ProfilePage(){
 
 
 	return (
-		<div className="img-list-container">
+		<>
+		{/* <h2 className="header">{`${userId}`}</h2> */}
+		<h2 className="header">Photos</h2>
+		<div className="slider">
 			{Object.values(userPhotosList)?.map(photo => {
 				return (
-					<div className='img-container'>
-					    <img className="individual-photo" src={photo.imgUrl} alt={`${photo.title}`} height="300px" width="400px"/>
+					<div className='slides'>
+						<Link to={`photos/${photo.id}`}>
+					    	<img id={`slides-${photo.id}`} src={photo.imgUrl} alt={`${photo.title}`} height="300px" width="400px"/>
+						</Link>
 					    <p className="titles">{photo.title}</p>
 					</div>
 				)
 			})}
 		</div>
+		{/* <h2 className="header">Albums</h2> */}
+		</>
 	);
 };
   

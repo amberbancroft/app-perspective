@@ -1,0 +1,37 @@
+/* .img-lists-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+} */
+
+/* * {
+    box-sizing: border-box;
+} */
+  
+.slider {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.slider {
+    display: flex;
+    
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    
+    
+    
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    
+    /* scroll-snap-points-x: repeat(300px);
+    scroll-snap-type: mandatory; */
+}
+
+/* .slides::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+} */

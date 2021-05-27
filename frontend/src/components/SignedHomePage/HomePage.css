@@ -31,6 +31,7 @@
 
 .img-container{
     position: relative;
+    max-height: 300px;
 }
 
 .img-container:hover .titles{
