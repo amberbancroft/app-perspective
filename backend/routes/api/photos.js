@@ -63,12 +63,14 @@ router.put(
 //Delete single photo
 router.delete('/:id(\\d+)/delete', async (req, res) => {
     const photoId = parseInt(req.params.id,10);
+    const deletePhoto = await Photo.findByPk(photoId);
 
-    const deletePhoto = await Photo.destroy({
-      where: photoId 
-    })
+    await deletePhoto.destroy()
 
-    res.json(deletePhoto);
+    // This shows no content was found successfully
+    res.status(204).end()
+
+    // res.json(deletePhoto);
 });
 
 

@@ -80,12 +80,14 @@ export const getPhotoForEdit = (photo) => async dispatch => {
 };
 
 export const deleteSinglePhoto = (photoId) => async dispatch => {
-  const response = await csrfFetch(`/api/photos/${photoId}/delete`);
+  const response = await csrfFetch(`/api/photos/${photoId}/delete`, {
+    method: "DELETE"
+  });
 
   if (response.ok) {
-    const photo = await response.json();
-    console.log("!!!!!!!!!!!!!!!!!!!!", photo);
-    dispatch(deletePhoto(photo));
+    // const photo = await response.json();
+    // console.log("!!!!!!!!!!!!!!!!!!!!", photo);
+    dispatch(deletePhoto(photoId));
   }
 };
 
@@ -123,11 +125,13 @@ export default function photoReducer(state = {}, action){
 
       case DELETING: {
         const photo = {...state};
-        photo[action.photo.id] = action.photo;
+        delete photo[action.photo]
+        // photo[action.photo.id] = action.photo;
+        // this returns the previous state before the photo was deleted
         return photo
       }
 
-        default:
-          return state;
+      default:
+        return state;
     } 
 };

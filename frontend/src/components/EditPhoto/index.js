@@ -23,9 +23,10 @@ function EditPhoto(){
 		history.push(`/home`);
 	}
 
+	// Helping function for delete
 	const deleteHelperFunction = (e) => {
 		e.preventDefault();
-		dispatch(deleteSinglePhoto({ photoId }));
+		dispatch(deleteSinglePhoto(photo.id));
 		history.push(`/home`);
 	}
 

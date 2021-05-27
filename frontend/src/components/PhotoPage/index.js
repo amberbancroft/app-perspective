@@ -3,7 +3,7 @@ import React from 'react';
 import "./PhotoPage.css"
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPhoto } from '../../store/photo';
+import { getPhoto, deleteSinglePhoto} from '../../store/photo';
 import { useParams, useHistory } from "react-router-dom";
 
 // ProfilePage component 
@@ -26,6 +26,13 @@ function PhotoPage(){
         history.push(`/photos/${photoId}/edit`);
     }
 
+    // Helping function for delete
+	const deleteHelperFunction = (e) => {
+		e.preventDefault();
+		dispatch(deleteSinglePhoto(photo.id));
+		history.push(`/home`);
+	}
+
 	// is basically an event listener that waits for the page to load
 	// call for the updated information using dispatch
 	useEffect(() => {
@@ -40,7 +47,7 @@ function PhotoPage(){
             <div className='button-container'>
                 {/* <a className='control-bar-button' id='edit-btn' href={`/users/${sessionUser.id}/edit`}> Edit </a> */}
                 <button className="control-bar-button" onClick={ photoClick }> Edit </button>
-                <button className="control-bar-button"> Delete </button>
+                <button className="control-bar-button" onClick={deleteHelperFunction}> Delete </button>
             </div>
         </div>
         <div className='img-container-2'>
