@@ -5,6 +5,8 @@ import { csrfFetch } from "./csrf";
 const LOAD = 'photos/LOAD';
 const PROFILE = 'photos/PROFILE';
 const LOADING = 'photo/LOADING';
+const EDITING = 'photo/EDITING';
+const DELETING = 'photo/DELETING';
 
 // actions
 export const load = photos => ({
@@ -19,6 +21,16 @@ export const profile = userPhotos => ({
 
 export const loadSinglePhoto = photo => ({
   type: LOADING,
+  photo,
+});
+
+export const loadSinglePhotoForEdit = title => ({
+  type: EDITING,
+  title,
+});
+
+export const deletePhoto = photo => ({
+  type: DELETING,
   photo,
 });
 
@@ -48,8 +60,34 @@ export const getPhoto = (photoId) => async dispatch => {
 
   if (response.ok) {
     const photoData = await response.json();
-    console.log("single photo", photoData);
+    // console.log("single photo", photoData);
     dispatch(loadSinglePhoto(photoData));
+  }
+};
+
+export const getPhotoForEdit = (photoId) => async dispatch => {
+  const response = await csrfFetch(`/api/photos/${photoId}/edit`);
+  // let boolean = false;
+
+  //if defined
+  // if(req.session.auth) {
+    // boolean = userId === req.session.auth.userId;
+
+    if (response.ok) {
+      const title = await response.json();
+      // console.log("single photo", photo);
+      dispatch(loadSinglePhotoForEdit(title));
+    }
+  // }
+};
+
+export const deletePhoto = (photoId) => async dispatch => {
+  const response = await csrfFetch(`/api/photos/${photoId}/delete`);
+
+  if (response.ok) {
+    const photo = await response.json();
+    // console.log("single photo", photoData);
+    dispatch(deletePhoto(photo));
   }
 };
 
@@ -77,6 +115,18 @@ export default function photoReducer(state = {}, action){
         const singlePhoto = {...state};
         singlePhoto[action.photo.id] = action.photo;
         return singlePhoto
+      }
+
+      case EDITING: {
+        const title = {...state};
+        title[action.photo.id] = action.photo;
+        return title
+      }
+
+      case DELETING: {
+        const photo = {...state};
+        photo[action.photo.id] = action.photo;
+        return photo
       }
 
         default:

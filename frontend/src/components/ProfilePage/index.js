@@ -35,7 +35,7 @@ function ProfilePage(){
 			{Object.values(userPhotosList)?.map(photo => {
 				return (
 					<div className='slides'>
-						<Link to={`photos/${photo.id}`}>
+						<Link to={`/photos/${photo.id}`}>
 					    	<img id={`slides-${photo.id}`} src={photo.imgUrl} alt={`${photo.title}`} height="300px" width="400px"/>
 						</Link>
 					    <p className="titles">{photo.title}</p>
