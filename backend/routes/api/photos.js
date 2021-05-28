@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Photo, User } = require("../../db/models");
+const { singleMulterUpload, singlePublicFileUpload} = require('../../awsS3');
 
 //Photos home Page
 router.get('/', async (req, res) => {
@@ -25,7 +26,7 @@ router.get('/:id(\\d+)', async (req, res) => {
     const singlePhoto = await Photo.findByPk(photoId,  {
         include: User
     })
-    console.log("***************************************", singlePhoto);
+    console.log("*********this is single photo ****************", singlePhoto);
 
     // Passing the Array to the store in the frontend
     return res.json(singlePhoto);
@@ -73,6 +74,22 @@ router.delete('/:id(\\d+)/delete', async (req, res) => {
     // res.json(deletePhoto);
 });
 
+// Individual photos new page
+router.post(
+    "/new",
+    singleMulterUpload('photo'),
+    async (req, res) => {
+      const { userId, title } = req.body;
+      const imgUrl = await singlePublicFileUpload(req.file)
+      console.log("!!!!!!!!!!!!", imgUrl);
+      const data = {userId, title, imgUrl }
+      const newPhoto = await Photo.create(data);
+      const photo = await Photo.findByPk(newPhoto.id, {
+          include:User
+      });
+  
+    res.json(photo);
+})
 
 // Exports
 module.exports = router;

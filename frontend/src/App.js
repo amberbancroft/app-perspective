@@ -11,6 +11,7 @@ import Home from "./components/SignedHomePage";
 import ProfilePage from "./components/ProfilePage";
 import PhotoPage from "./components/PhotoPage";
 import EditPhoto from "./components/EditPhoto";
+import NewPhoto from "./components/newPhoto";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Footer from "./components/Footer";
@@ -37,12 +38,16 @@ function App() {
           <Route path="/users/:userId">
             <ProfilePage />
           </Route>
+          <Route exact path="/photos/new">
+            <NewPhoto />
+          </Route>
           <Route path="/photos/:photoId/edit">
             <EditPhoto />
           </Route>
           <Route path="/photos/:photoId">
             <PhotoPage />
           </Route>
+
           <Route path="/login">
             <LoginFormPage />
           </Route>

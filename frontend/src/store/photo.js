@@ -7,6 +7,7 @@ const PROFILE = 'photos/PROFILE';
 const LOADING = 'photo/LOADING';
 const EDITING = 'photo/EDITING';
 const DELETING = 'photo/DELETING';
+const ADDING = 'photo/ADDING';
 
 // actions
 export const load = photos => ({
@@ -31,6 +32,11 @@ export const loadSinglePhotoForEdit = photo => ({
 
 export const deletePhoto = photo => ({
   type: DELETING,
+  photo,
+});
+
+export const addPhoto = photo => ({
+  type: ADDING,
   photo,
 });
 
@@ -85,10 +91,25 @@ export const deleteSinglePhoto = (photoId) => async dispatch => {
   });
 
   if (response.ok) {
-    // const photo = await response.json();
-    // console.log("!!!!!!!!!!!!!!!!!!!!", photo);
     dispatch(deletePhoto(photoId));
   }
+};
+
+export const addSinglePhoto = (newPhoto) => async dispatch => {
+  const { userId, title, imgUrl } = newPhoto;
+  const formData = new FormData();
+  formData.append("userId", userId);
+  formData.append("title", title);
+  formData.append("imgUrl", imgUrl);
+
+  const res = await csrfFetch(`/api/photos/new`, {
+    method: 'POST',
+    headers: { "Content-Type": "multipart/form-data" },
+    body: formData,
+  });
+
+  const photo = await res.json();
+  dispatch(addPhoto(photo));
 };
 
 
@@ -129,6 +150,12 @@ export default function photoReducer(state = {}, action){
         // photo[action.photo.id] = action.photo;
         // this returns the previous state before the photo was deleted
         return photo
+      }
+
+      case ADDING: {
+        const singlePhoto = {...state};
+        singlePhoto[action.photo.id] = action.photo;
+        return singlePhoto
       }
 
       default:

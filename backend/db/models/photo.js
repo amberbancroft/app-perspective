@@ -15,5 +15,15 @@ module.exports = (sequelize, DataTypes) => {
   Photo.associate = function(models) {
     Photo.belongsTo(models.User, { foreignKey: 'userId' });
   };
+
+  Photo.uploadImage = async function (userId, title, imgUrl) {
+    const photo = await Photo.create({
+      userId,
+      title,
+      imgUrl,
+    });
+    return photo;
+  };
+
   return Photo;
 };

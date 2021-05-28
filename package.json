@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/amberbancroft/flicker-clone/issues"
   },
-  "homepage": "https://github.com/amberbancroft/flicker-clone#readme"
+  "homepage": "https://github.com/amberbancroft/flicker-clone#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
 }

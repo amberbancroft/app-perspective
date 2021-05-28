@@ -23,9 +23,8 @@ function Navigation({ isLoaded, user}){
     sessionLinks = (
       <>
       <button className='navbar-button' id='logout-btn' onClick={logout}>Log Out</button>
-      {/* <NavLink className='navbar-button' id='logInButton'to="/login">P</NavLink> */}
-      <a className='navbar-button' id='profile-btn' href={`/users/${sessionUser.id}`}>Profile</a>
-       {/* <ProfileButton className='navbar-button' user={sessionUser} /> */}
+      {/* <a className='navbar-button' id='add-photo-btn' href={`/photos/new`}> Add Photo </a> */}
+      <a className='navbar-button' id='profile-btn' href={`/users/${sessionUser.id}`}> Profile </a>
       </>
     );
   } else {
