@@ -13,7 +13,7 @@ function PhotoPage(){
 	// importing the reducer
     const { photoId } = useParams();
 	const photo = useSelector(state => state.photos[photoId]);
-    const sessionUser = useSelector(state => state.session.user);
+    // const sessionUser = useSelector(state => state.session.user);
     // use what is defined with in the index.js in the store for reducer
 
 	// call built in hooks to redirect and sends the updates
