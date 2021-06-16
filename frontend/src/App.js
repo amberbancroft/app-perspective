@@ -47,7 +47,6 @@ function App() {
           <Route path="/photos/:photoId">
             <PhotoPage />
           </Route>
-
           <Route path="/login">
             <LoginFormPage />
           </Route>

@@ -33,9 +33,9 @@ function Home(){
 		<>
 		<h2 className="header">Dare To Explore</h2>
 		<div className="img-list-container">
-			{Object.values(photosList).map(photo => {
+			{Object.values(photosList).map((photo,i) => {
 				return (
-					<div className='img-container'>
+					<div key={i} className='img-container'>
 						<Link to={`photos/${photo.id}`}>
 							<img className="individual-photo" src={photo.imgUrl} alt={`${photo.title}`} height="300px" width="400px"/>
 						</Link>

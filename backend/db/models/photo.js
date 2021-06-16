@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
     
     const columnMapping = {
-      through: 'Joins', // This is the model name referencing the
+      through: 'Join', // This is the model name referencing the
       otherKey: 'albumId',
       foreignKey: 'photoId'
     }

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     Album.belongsTo(models.User, { foreignKey: 'userId' });
 
     const columnMapping = {
-      through: 'Joins', // This is the model name referencing the
+      through: 'Join', // This is the model name referencing the
       otherKey: 'photoId',
       foreignKey: 'albumId'
     }

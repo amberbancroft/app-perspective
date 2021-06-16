@@ -1,13 +1,16 @@
+// Imports
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { Photo, User } = require('../../db/models');
+const { Photo, User, Album } = require('../../db/models');
 const { singleMulterUpload } = require('../../awsS3');
 
+// Variable declaration
 const router = express.Router();
 
+// Validations
 const validateSignup = [
   check('email')
     .exists({ checkFalsy: true })
@@ -69,6 +72,8 @@ router.get('/:id(\\d+)', async (req, res) => {
   // Passing the Array to the store in the frontend
   return res.json(userPhotos);
 });
+
+
  
 // Exports
 module.exports = router;

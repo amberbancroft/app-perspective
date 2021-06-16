@@ -13,6 +13,7 @@ function ProfilePage(){
 	// connects the backend to the front end
 	// importing the reducer
 	const userPhotosList = useSelector(state => state.photos);
+	const userAlbumsList = useSelector(state => state.albums);
 	// const user = useSelector(state => state.session.user.id);
     const { userId } = useParams();
 	
@@ -32,9 +33,9 @@ function ProfilePage(){
 		{/* <h2 className="header">{`${userId}`}</h2> */}
 		<h2 className="header">Photos</h2>
 		<div className="slider">
-			{Object.values(userPhotosList)?.map(photo => {
+			{Object.values(userPhotosList)?.map((photo,i) => {
 				return (
-					<div className='slides'>
+					<div key={i} className='slides'>
 						<Link to={`/photos/${photo.id}`}>
 					    	<img id={`slides-${photo.id}`} src={photo.imgUrl} alt={`${photo.title}`} height="300px" width="400px"/>
 						</Link>
@@ -43,7 +44,19 @@ function ProfilePage(){
 				)
 			})}
 		</div>
-		{/* <h2 className="header">Albums</h2> */}
+		<h2 className="header">Albums</h2>
+		<div className="slider">
+			{Object.values(userAlbumsList)?.map((album,i) => {
+				return (
+					<div key={i} className='slides'>
+						<Link to={`/photos/${album.id}`}>
+					    	<img id={`slides-${album.id}`} src={album.imgUrl} alt={`${album.title}`} height="300px" width="400px"/>
+						</Link>
+					    <p className="titles">{album.title}</p>
+					</div>
+				)
+			})}
+		</div>
 		</>
 	);
 };
