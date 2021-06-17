@@ -32,7 +32,7 @@ router.get('/user/:id(\\d+)', async (req, res) => {
       },
       include: Photo
     });
-    console.log("***************************************", userAlbums);
+    // console.log("***************************************", userAlbums);
     // Passing the Array to the store in the frontend
     return res.json(userAlbums);
 });

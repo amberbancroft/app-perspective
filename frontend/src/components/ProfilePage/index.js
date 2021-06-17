@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserPhotos } from '../../store/photo';
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { getUserAlbums } from '../../store/album';
 
 // ProfilePage component 
 function ProfilePage(){
@@ -25,6 +26,7 @@ function ProfilePage(){
 	// call for the updated information using dispatch
 	useEffect(() => {
 		dispatch(getUserPhotos(userId));
+		dispatch(getUserAlbums(userId));
 	}, [dispatch, userId]);
 
 
@@ -50,7 +52,7 @@ function ProfilePage(){
 				return (
 					<div key={i} className='slides'>
 						<Link to={`/photos/${album.id}`}>
-					    	<img id={`slides-${album.id}`} src={album.imgUrl} alt={`${album.title}`} height="300px" width="400px"/>
+					    	<img id={`slides-${album.id}`} src={album.Photos.imgUrl} alt={`${album.title}`} height="300px" width="400px"/>
 						</Link>
 					    <p className="titles">{album.title}</p>
 					</div>

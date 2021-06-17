@@ -12,11 +12,11 @@ export const profile = userAlbums => ({
 
 // Thunks
 export const getUserAlbums = (userId) => async dispatch => {
-    const response = await csrfFetch(`/api/users/${userId}`);
+    const response = await csrfFetch(`/api/albums/user/${userId}`);
   
     if (response.ok) {
       const userAlbums = await response.json();
-      console.log("user album list here", userAlbums);
+    //   console.log("user album list here", userAlbums);
       dispatch(profile(userAlbums));
     }
 };
