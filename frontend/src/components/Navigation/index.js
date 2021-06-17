@@ -23,7 +23,7 @@ function Navigation({ isLoaded, user}){
     sessionLinks = (
       <>
       <button className='navbar-button' id='logout-btn' onClick={logout}>Log Out</button>
-      {/* <a className='navbar-button' id='add-photo-btn' href={`/photos/new`}> Add Photo </a> */}
+      <a className='navbar-button' id='add-photo-btn' href={`/photos/new`}> Add Photo </a>
       <a className='navbar-button' id='profile-btn' href={`/users/${sessionUser.id}`}> Profile </a>
       </>
     );

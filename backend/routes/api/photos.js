@@ -78,11 +78,11 @@ router.delete('/:id(\\d+)/delete', async (req, res) => {
 // Individual photos new page
 router.post(
     "/new",
-    singleMulterUpload('photo'),
+    singleMulterUpload('imgUrl'),
     async (req, res) => {
       const { userId, title } = req.body;
       const imgUrl = await singlePublicFileUpload(req.file)
-      console.log("!!!!!!!!!!!!", imgUrl);
+    //   console.log("!!!!!!!!!!!!", imgUrl);
       const data = {userId, title, imgUrl }
       const newPhoto = await Photo.create(data);
       const photo = await Photo.findByPk(newPhoto.id, {
