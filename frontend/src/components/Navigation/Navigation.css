@@ -83,8 +83,13 @@ body{
     background-color: transparent;
     font-weight: bold;
     font-size: medium;
-    margin-right: -20px;
+    margin-right: 20px;
     margin-top: 3px;
+}
+
+#add-photo-btn{
+    padding-top: 10px;
+    font-weight: bold;
 }
 
 /* Images */
