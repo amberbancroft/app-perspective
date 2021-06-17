@@ -4,9 +4,8 @@
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    background: url(./images/img_1.JPG);
-    background-size: cover;
-    background-position: center;  
+    
+    /* background: url(./images/img_1.JPG); */
 } 
 .inspiration-container h2{
     display: flex;
