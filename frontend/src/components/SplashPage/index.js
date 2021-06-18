@@ -19,8 +19,12 @@ function SplashPage(){
             ];
             const index = Math.floor(Math.random() * images.length);
             const finalphoto = images[index]
-            document.body.style.background = `url(${finalphoto})`;
-            document.body.style.backgroundPosition = "bottom center";
+
+            // document.body.style.background = `url(${finalphoto})`;
+            let container = document.querySelector('.inspiration-container');
+            // console.log(container);
+            container.style.backgroundImage = `url(${finalphoto})`;
+            // document.body.style.backgroundPosition = "bottom center";
             return finalphoto;
         }
 
