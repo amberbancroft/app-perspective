@@ -73,6 +73,22 @@ router.get('/:id(\\d+)', async (req, res) => {
   return res.json(userPhotos);
 });
 
+// Get User info for profile page
+router.get('/:id(\\d+)', async (req, res) => {
+  // getting userId
+  // req.params.id grabs the id from the url
+  const userId = parseInt(req.params.id,10);
+  
+  // Find all photos the belong to that user
+  const userInfo = await User.findAll({
+    where: {
+        userId
+    },
+  });
+  // console.log("***************************************", userPhotos);
+  // Passing the Array to the store in the frontend
+  return res.json(userInfo);
+});
 
  
 // Exports

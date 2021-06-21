@@ -1,6 +1,5 @@
 import DemoUser from "../DemoUser";
 import React, { useEffect } from 'react';
-// import images from "./images";
 import image1 from "./images/img_1.JPG"
 import image2 from "./images/img_2.JPG"
 import image3 from "./images/img_3.JPG"
@@ -20,15 +19,12 @@ function SplashPage(){
             const index = Math.floor(Math.random() * images.length);
             const finalphoto = images[index]
 
-            // document.body.style.background = `url(${finalphoto})`;
             let container = document.querySelector('.inspiration-container');
-            // console.log(container);
             container.style.backgroundImage = `url(${finalphoto})`;
-            // document.body.style.backgroundPosition = "bottom center";
             return finalphoto;
         }
 
-            const interval = setInterval(randomImage, 5000);
+            const interval = setInterval(randomImage, 7000);
             return () => clearInterval(interval);
         }, []);
     

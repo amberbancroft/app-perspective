@@ -14,6 +14,7 @@ import EditPhoto from "./components/EditPhoto";
 import NewPhoto from "./components/newPhoto";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+// import AlbumPage from "";
 import Footer from "./components/Footer";
 
 // App function declared
@@ -47,6 +48,9 @@ function App() {
           <Route path="/photos/:photoId">
             <PhotoPage />
           </Route>
+          {/* <Route path="/albums/:albumId">
+            <AlbumPage />
+          </Route> */}
           <Route path="/login">
             <LoginFormPage />
           </Route>
