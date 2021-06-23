@@ -50,9 +50,9 @@ function ProfilePage(){
 			{Object.values(userAlbumsList)?.map((album,i) => {
 				return (
 					<div key={i} className='slides'>
-						{/* <Link to={`/photos/${album.id}`}> */}
+						<Link to={`/albums/${album.id}`}>
 					    	<img id={`slides-${album.id}`} src={Object.values((album.Photos))[0].imgUrl} alt={`${album.title}`} height="300px" width="400px"/>
-						{/* </Link> */}
+						</Link>
 					    {/* <p className="titles">{album.title}</p> */}
 					</div>
 				)

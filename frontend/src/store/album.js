@@ -32,7 +32,7 @@ export const getAlbum = (albumId) => async dispatch => {
   
     if (response.ok) {
       const albumData = await response.json();
-      // console.log("single photo", photoData);
+    //   console.log("single album", albumData);
       dispatch(loadSingleAlbum(albumData));
     }
   };
@@ -42,6 +42,7 @@ export default function albumReducer(state = {}, action){
     switch (action.type) {
         case PROFILE: {
             const allUserAlbums = {...state};
+            // Normalizing object here
             action.userAlbums.forEach(album => {
                 allUserAlbums[album.id] = album;
             });
@@ -49,9 +50,10 @@ export default function albumReducer(state = {}, action){
         }
 
         case LOADING: {
-            const singleAlbum = {...state};
-            singleAlbum[action.album.id] = action.album;
-            return singleAlbum
+          return {...state, ...action.album}
+            // const singleAlbum = {...state};
+            // singleAlbum[action.album.id] = action.album;
+            // return singleAlbum
         }
 
         default:

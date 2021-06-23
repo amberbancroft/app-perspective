@@ -1,21 +1,44 @@
 // Importing
-import React from 'react';
+import React, { useState } from 'react';
 import "./album.css"
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { getAlbum, deleteSinglePhoto} from '../../store/album';
 import { getAlbum } from '../../store/album';
 // import { useParams, useHistory } from "react-router-dom";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-// ProfilePage component 
+// ProfilePage component
+function GettingDataToLoad({photoId}){
+	return (
+		<>
+			<h2 className="header">Album Photos</h2>
+			<div className="slider">
+				{Object.values(photoId)?.map((albumPhotoArray,i) => {
+					return (
+						<div key={i} className='slides'>
+							<Link to={`/photos/${albumPhotoArray.id}`}>
+								<img id={`slides-${albumPhotoArray.id}`} src={albumPhotoArray.imgUrl} alt={`${albumPhotoArray.title}`} height="300px" width="400px"/>
+							</Link>
+						</div>
+					)
+				})}
+			</div>
+		</>
+	)
+} 
+
 function AlbumPage(){
 	// Call the reducer to get the most current state
 	// connects the backend to the front end
 	// importing the reducer
     const { albumId } = useParams();
-    const userPhotosList = useSelector(state => state.photos);
-	// const album = useSelector(state => state.photos[photoId]);
+    // const userPhotosList = useSelector(state => state.photos);
+	// const userAlbum = useSelector(state => state.albums);
+	// const album = useSelector(state => state.albums);
+	const photoId = useSelector(state => state.albums.photos);
+	
     // const sessionUser = useSelector(state => state.session.user);
     // use what is defined with in the index.js in the store for reducer
 
@@ -39,27 +62,19 @@ function AlbumPage(){
 	// call for the updated information using dispatch
 	useEffect(() => {
 		dispatch(getAlbum(albumId));
-	}, [dispatch, albumoId]);
+	}, [dispatch, albumId]);
 
+	if(photoId !== undefined){
+		return (
+			<>
+				<GettingDataToLoad photoId={photoId}/>
+			</>
+		);
+	}
+	else {
+		return null
+	}
 
-    return (
-		<>
-		{/* <h2 className="header">{`${userId}`}</h2> */}
-		<h2 className="header">Album Photos</h2>
-		<div className="slider">
-			{Object.values(userPhotosList)?.map((photo,i) => {
-				return (
-					<div key={i} className='slides'>
-						<Link to={`/photos/${photo.id}`}>
-					    	<img id={`slides-${photo.id}`} src={photo.imgUrl} alt={`${photo.title}`} height="300px" width="400px"/>
-						</Link>
-					    {/* <p className="titles">{photo.title}</p> */}
-					</div>
-				)
-			})}
-		</div>
-		</>
-	);
 };
   
 // Exporting

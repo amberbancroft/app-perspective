@@ -9,6 +9,9 @@ import "./SplashPage.css";
 function SplashPage(){
   
     useEffect(() => {
+        let container = document.querySelector('.inspiration-container');
+        container.style.backgroundImage = `url(${image1})`;
+        
         function randomImage() {
             const images = [
                 image1,
@@ -19,7 +22,7 @@ function SplashPage(){
             const index = Math.floor(Math.random() * images.length);
             const finalphoto = images[index]
 
-            let container = document.querySelector('.inspiration-container');
+            
             container.style.backgroundImage = `url(${finalphoto})`;
             return finalphoto;
         }
