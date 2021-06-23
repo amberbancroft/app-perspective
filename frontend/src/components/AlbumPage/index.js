@@ -1,19 +1,43 @@
 // Importing
-import React, { useState } from 'react';
+import React from 'react';
 import "./album.css"
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { getAlbum, deleteSinglePhoto} from '../../store/album';
-import { getAlbum } from '../../store/album';
-// import { useParams, useHistory } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { getAlbum, deleteAlbumz } from '../../store/album';
+import { useParams, useHistory, Link } from "react-router-dom";
 
 // ProfilePage component
 function GettingDataToLoad({photoId}){
+	const { albumId } = useParams();
+	const dispatch = useDispatch();
+	const history = useHistory();
+	
+    // const photoClick = (e) => {
+    //     e.preventDefault();
+    //     history.push(`/albums/${albumId}/edit`);
+    // }
+
+	// // Cant use useEffect for an update
+	// const UpdateHelperFunction = (e) => {
+	// 	e.preventDefault();
+	// 	dispatch(getPhotoForEdit({title, photoId}));
+	// 	history.push(`/home`);
+	// }
+
+    // Helping function for delete
+	const deleteHelperFunction = (e) => {
+		e.preventDefault();
+		dispatch(deleteAlbumz(albumId));
+		// history.push(`/home`);
+	}
+
 	return (
 		<>
-			<h2 className="header">Album Photos</h2>
+			<div>
+				<h2 className="header">Album Photos</h2>
+				{/* <button className="control-bar-button" onClick={ photoClick }> Edit </button> */}
+                <button className="control-bar-button" onClick={ deleteHelperFunction }> Delete </button>
+			</div>
 			<div className="slider">
 				{Object.values(photoId)?.map((albumPhotoArray,i) => {
 					return (
@@ -30,36 +54,11 @@ function GettingDataToLoad({photoId}){
 } 
 
 function AlbumPage(){
-	// Call the reducer to get the most current state
-	// connects the backend to the front end
-	// importing the reducer
     const { albumId } = useParams();
-    // const userPhotosList = useSelector(state => state.photos);
-	// const userAlbum = useSelector(state => state.albums);
-	// const album = useSelector(state => state.albums);
 	const photoId = useSelector(state => state.albums.photos);
 	
-    // const sessionUser = useSelector(state => state.session.user);
-    // use what is defined with in the index.js in the store for reducer
-
-	// call built in hooks to redirect and sends the updates
 	const dispatch = useDispatch();
-	// const history = useHistory();
-	
-    // const photoClick = (e) => {
-    //     e.preventDefault();
-    //     history.push(`/albums/${albumId}/edit`);
-    // }
 
-    // // Helping function for delete
-	// const deleteHelperFunction = (e) => {
-	// 	e.preventDefault();
-	// 	dispatch(deleteSinglePhoto(photo.id));
-	// 	history.push(`/home`);
-	// }
-
-	// is basically an event listener that waits for the page to load
-	// call for the updated information using dispatch
 	useEffect(() => {
 		dispatch(getAlbum(albumId));
 	}, [dispatch, albumId]);

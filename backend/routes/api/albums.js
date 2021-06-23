@@ -71,18 +71,18 @@ router.get('/:id(\\d+)', async (req, res) => {
 //     res.json(currentPhoto);
 // })
 
-// //Delete single photo
-// router.delete('/:id(\\d+)/delete', async (req, res) => {
-//   const photoId = parseInt(req.params.id,10);
-//   const deletePhoto = await Photo.findByPk(photoId);
+//Delete single photo
+router.delete('/:id(\\d+)/delete', async (req, res) => {
+  const albumId = parseInt(req.params.id,10);
+  const deleteAlbum = await Album.findByPk(albumId);
 
-//   await deletePhoto.destroy()
+  await deleteAlbum.destroy()
 
-//   // This shows no content was found successfully
-//   res.status(204).end()
+  // This shows no content was found successfully
+  res.status(204).end()
 
-//   // res.json(deletePhoto);
-// });
+  // res.json(deletePhoto);
+});
 
 // // Individual photos new page
 // router.post(

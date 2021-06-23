@@ -4,6 +4,9 @@ import { csrfFetch } from "./csrf";
 // variable declaration
 const PROFILE = 'albums/PROFILE';
 const LOADING = 'albums/LOADING';
+const EDITING = 'albums/EDITING';
+const DELETING = 'albums/DELETING';
+// const ADDING = 'albums/ADDING';
 
 // actions
 export const profile = userAlbums => ({
@@ -15,6 +18,21 @@ export const loadSingleAlbum = album => ({
     type: LOADING,
     album,
 });
+
+export const loadSingleAlbumForEdit = album => ({
+  type: EDITING,
+  album,
+});
+
+export const deleteAlbum = album => ({
+  type: DELETING,
+  album,
+});
+
+// export const addPhotoFromAlbum = album => ({
+//   type: ADDING,
+//   album,
+// });
 
 // Thunks
 export const getUserAlbums = (userId) => async dispatch => {
@@ -35,7 +53,30 @@ export const getAlbum = (albumId) => async dispatch => {
     //   console.log("single album", albumData);
       dispatch(loadSingleAlbum(albumData));
     }
-  };
+};
+
+export const getAlbumForEdit = (album) => async dispatch => {
+  const response = await csrfFetch(`/api/albums/${album.photoId}/edit`, {
+    method: "PUT",
+    headers: { 'Content-Type': "application/json" },
+    body: JSON.stringify(album)
+  });
+
+    if (response.ok) {
+      const title = await response.json();
+      dispatch(loadSingleAlbumForEdit(title));
+    }
+};
+
+export const deleteAlbumz = (albumId) => async dispatch => {
+  const response = await csrfFetch(`/api/albums/${albumId}/delete`, {
+    method: "DELETE"
+  });
+
+  if (response.ok) {
+    dispatch(deleteAlbum(albumId));
+  }
+};
 
 // Reducer- updates the current state
 export default function albumReducer(state = {}, action){
@@ -54,6 +95,20 @@ export default function albumReducer(state = {}, action){
             // const singleAlbum = {...state};
             // singleAlbum[action.album.id] = action.album;
             // return singleAlbum
+        }
+
+        case EDITING: {
+          return {...state, ...action.album};
+          // title[action.photo.id] = action.photo;
+          // return title
+        }
+
+        case DELETING: {
+          const album = {...state};
+          delete album[action.album]
+          // photo[action.photo.id] = action.photo;
+          // this returns the previous state before the photo was deleted
+          return album
         }
 
         default:
