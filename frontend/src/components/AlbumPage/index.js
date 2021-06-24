@@ -9,6 +9,8 @@ import { useParams, useHistory, Link } from "react-router-dom";
 // ProfilePage component
 function GettingDataToLoad({photoId}){
 	const { albumId } = useParams();
+	const userId = useSelector(state => state.session.user);
+	console.log('poop', userId)
 	const dispatch = useDispatch();
 	const history = useHistory();
 	
@@ -28,7 +30,7 @@ function GettingDataToLoad({photoId}){
 	const deleteHelperFunction = (e) => {
 		e.preventDefault();
 		dispatch(deleteAlbumz(albumId));
-		// history.push(`/home`);
+		history.push(`/users/${userId.id}`);
 	}
 
 	return (
@@ -56,6 +58,7 @@ function GettingDataToLoad({photoId}){
 function AlbumPage(){
     const { albumId } = useParams();
 	const photoId = useSelector(state => state.albums.photos);
+	
 	
 	const dispatch = useDispatch();
 

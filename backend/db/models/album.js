@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'albumId'
     }
     Album.belongsToMany(models.Photo, columnMapping);
+    Album.hasMany(models.Join, { foreignKey: 'albumId', onDelete: 'CASCADE', hooks: true });
   };
   return Album;
 };

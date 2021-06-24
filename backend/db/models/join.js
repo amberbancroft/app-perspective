@@ -9,6 +9,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
 
-  Join.associate = function(models) {};
+  Join.associate = function(models) {
+    Join.belongsTo(models.Album, { foreignKey: 'albumId'} );
+  };
   return Join;
 };
