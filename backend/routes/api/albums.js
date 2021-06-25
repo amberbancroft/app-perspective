@@ -43,33 +43,33 @@ router.get('/:id(\\d+)', async (req, res) => {
 });
 
 // Individual Albums edit page
-// router.get('/:id(\\d+)/edit', async (req, res) => {
-//   // extract the photoId
-//   const photoId = parseInt(req.params.id,10);
+router.get('/:id(\\d+)/edit', async (req, res) => {
+  // extract the photoId
+  const albumId = parseInt(req.params.id,10);
 
-//   // Find all photos in backend
-//   const singlePhotoForEdit = await Photo.findByPk(photoId,  {
-//       include: User
-//   })
-//   // console.log("***************************************", singlePhoto);
+  // Find all photos in backend
+  const singleAlbumForEdit = await Album.findByPk(albumId,  {
+      include: User
+  })
+  // console.log("***************************************", singleAlbumForEdit);
 
-//   // Passing the Array to the store in the frontend
-//   return res.json(singlePhotoForEdit);
-// });
+  // Passing the Array to the store in the frontend
+  return res.json(singleAlbumForEdit);
+});
 
-// router.put(
-//   "/:id(\\d+)/edit",
-//   async (req, res) => {
-//     const { title } = req.body;
-//     const photoId = parseInt(req.params.id,10);
-//     const currentPhoto = await Photo.findByPk(photoId);
+router.put(
+  "/:id(\\d+)/edit",
+  async (req, res) => {
+    const { title } = req.body;
+    const albumId = parseInt(req.params.id,10);
+    const currentAlbum = await Album.findByPk(albumId);
 
-//     await currentPhoto.update({
-//       title
-//     });
+    await currentAlbum.update({
+      title
+    });
 
-//     res.json(currentPhoto);
-// })
+    res.json(currentAlbum);
+})
 
 //Delete single photo
 router.delete('/:id(\\d+)/delete', async (req, res) => {
@@ -84,22 +84,21 @@ router.delete('/:id(\\d+)/delete', async (req, res) => {
   // res.json(deletePhoto);
 });
 
-// // Individual photos new page
-// router.post(
-//   "/new",
-//   singleMulterUpload('imgUrl'),
-//   async (req, res) => {
-//     const { userId, title } = req.body;
-//     const imgUrl = await singlePublicFileUpload(req.file)
-//   //   console.log("!!!!!!!!!!!!", imgUrl);
-//     const data = {userId, title, imgUrl }
-//     const newPhoto = await Photo.create(data);
-//     const photo = await Photo.findByPk(newPhoto.id, {
-//         include:User
-//     });
+// Individual new albums
+router.post(
+  "/new",
+  // singleMulterUpload('imgUrl'),
+  async (req, res) => {
+    const { userId, title, description } = req.body;
+    // const imgUrl = await singlePublicFileUpload(req.file)
+    const data = {userId, title, description }
+    const newAlbum = await Album.create(data);
+    const album = await Album.findByPk(newAlbum.id, {
+        include:User
+    });
 
-//   res.json(photo);
-// })
+  res.json(album);
+})
 
 
 // Exports

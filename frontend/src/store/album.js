@@ -6,7 +6,7 @@ const PROFILE = 'albums/PROFILE';
 const LOADING = 'albums/LOADING';
 const EDITING = 'albums/EDITING';
 const DELETING = 'albums/DELETING';
-// const ADDING = 'albums/ADDING';
+const ADDING = 'albums/ADDING';
 
 // actions
 export const profile = userAlbums => ({
@@ -29,10 +29,10 @@ export const deleteAlbum = album => ({
   album,
 });
 
-// export const addPhotoFromAlbum = album => ({
-//   type: ADDING,
-//   album,
-// });
+export const createAlbum = album => ({
+  type: ADDING,
+  album,
+});
 
 // Thunks
 export const getUserAlbums = (userId) => async dispatch => {
@@ -56,7 +56,7 @@ export const getAlbum = (albumId) => async dispatch => {
 };
 
 export const getAlbumForEdit = (album) => async dispatch => {
-  const response = await csrfFetch(`/api/albums/${album.photoId}/edit`, {
+  const response = await csrfFetch(`/api/albums/${album.albumId}/edit`, {
     method: "PUT",
     headers: { 'Content-Type': "application/json" },
     body: JSON.stringify(album)
@@ -64,7 +64,8 @@ export const getAlbumForEdit = (album) => async dispatch => {
 
     if (response.ok) {
       const title = await response.json();
-      dispatch(loadSingleAlbumForEdit(title));
+      const description = await response.json();
+      dispatch(loadSingleAlbumForEdit(title, description));
     }
 };
 
@@ -76,6 +77,23 @@ export const deleteAlbumz = (albumId) => async dispatch => {
   if (response.ok) {
     dispatch(deleteAlbum(albumId));
   }
+};
+
+export const createNewAlbum = (newAlbum) => async dispatch => {
+  const { userId, title, description } = newAlbum;
+  const formData = new FormData();
+  formData.append("userId", userId);
+  formData.append("title", title);
+  formData.append("description", description);
+
+  const res = await csrfFetch(`/api/albums/new`, {
+    method: 'POST',
+    headers: { "Content-Type": "multipart/form-data" },
+    body: formData,
+  });
+
+  const album = await res.json();
+  dispatch(createAlbum(album));
 };
 
 // Reducer- updates the current state
@@ -109,6 +127,13 @@ export default function albumReducer(state = {}, action){
           // photo[action.photo.id] = action.photo;
           // this returns the previous state before the photo was deleted
           return album
+        }
+
+        case ADDING: {
+          return {...state, ...action.album};
+          // const singlePhoto = {...state};
+          // singlePhoto[action.photo.id] = action.photo;
+          // return singlePhoto
         }
 
         default:

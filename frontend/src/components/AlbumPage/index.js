@@ -10,34 +10,27 @@ import { useParams, useHistory, Link } from "react-router-dom";
 function GettingDataToLoad({photoId}){
 	const { albumId } = useParams();
 	const userId = useSelector(state => state.session.user);
-	console.log('poop', userId)
+
 	const dispatch = useDispatch();
 	const history = useHistory();
 	
-    // const photoClick = (e) => {
-    //     e.preventDefault();
-    //     history.push(`/albums/${albumId}/edit`);
-    // }
-
-	// // Cant use useEffect for an update
-	// const UpdateHelperFunction = (e) => {
-	// 	e.preventDefault();
-	// 	dispatch(getPhotoForEdit({title, photoId}));
-	// 	history.push(`/home`);
-	// }
+    const editClick = (e) => {
+        e.preventDefault();
+        history.push(`/albums/${albumId}/edit`);
+    }
 
     // Helping function for delete
 	const deleteHelperFunction = (e) => {
 		e.preventDefault();
 		dispatch(deleteAlbumz(albumId));
-		history.push(`/users/${userId.id}`);
+		history.push(`/home`);
 	}
 
 	return (
 		<>
 			<div>
 				<h2 className="header">Album Photos</h2>
-				{/* <button className="control-bar-button" onClick={ photoClick }> Edit </button> */}
+				<button className="control-bar-button" onClick={ editClick }> Edit </button>
                 <button className="control-bar-button" onClick={ deleteHelperFunction }> Delete </button>
 			</div>
 			<div className="slider">
@@ -58,7 +51,6 @@ function GettingDataToLoad({photoId}){
 function AlbumPage(){
     const { albumId } = useParams();
 	const photoId = useSelector(state => state.albums.photos);
-	
 	
 	const dispatch = useDispatch();
 

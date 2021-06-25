@@ -15,6 +15,7 @@ import NewPhoto from "./components/newPhoto";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import AlbumPage from "./components/AlbumPage";
+import EditAlbum from "./components/EditAlbum";
 import Footer from "./components/Footer";
 
 // App function declared
@@ -48,8 +49,11 @@ function App() {
           <Route path="/photos/:photoId">
             <PhotoPage />
           </Route>
-          <Route path="/albums/:albumId">
+          <Route exact path="/albums/:albumId">
             <AlbumPage />
+          </Route>
+          <Route path="/albums/:albumId/edit">
+            <EditAlbum />
           </Route>
           <Route path="/login">
             <LoginFormPage />
