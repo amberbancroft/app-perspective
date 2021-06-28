@@ -80,20 +80,17 @@ export const deleteAlbumz = (albumId) => async dispatch => {
 };
 
 export const createNewAlbum = (newAlbum) => async dispatch => {
-  const { userId, title, description } = newAlbum;
-  const formData = new FormData();
-  formData.append("userId", userId);
-  formData.append("title", title);
-  formData.append("description", description);
 
   const res = await csrfFetch(`/api/albums/new`, {
     method: 'POST',
-    headers: { "Content-Type": "multipart/form-data" },
-    body: formData,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newAlbum),
   });
 
+  if (res.ok) {
   const album = await res.json();
   dispatch(createAlbum(album));
+  }
 };
 
 // Reducer- updates the current state

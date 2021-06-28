@@ -12,6 +12,7 @@ import ProfilePage from "./components/ProfilePage";
 import PhotoPage from "./components/PhotoPage";
 import EditPhoto from "./components/EditPhoto";
 import NewPhoto from "./components/newPhoto";
+import NewAlbum from "./components/newAlbum";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import AlbumPage from "./components/AlbumPage";
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route exact path="/albums/:albumId">
             <AlbumPage />
+          </Route>
+          <Route exact path="/albums/new">
+            <NewAlbum />
           </Route>
           <Route path="/albums/:albumId/edit">
             <EditAlbum />

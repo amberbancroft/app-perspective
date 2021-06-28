@@ -91,13 +91,13 @@ router.post(
   async (req, res) => {
     const { userId, title, description } = req.body;
     // const imgUrl = await singlePublicFileUpload(req.file)
-    const data = {userId, title, description }
+    const data = { userId, title, description }
     const newAlbum = await Album.create(data);
-    const album = await Album.findByPk(newAlbum.id, {
-        include:User
-    });
+    // const album = await Album.findByPk(newAlbum.id, {
+    //     include:User
+    // });
 
-  res.json(album);
+  res.json(newAlbum);
 })
 
 
