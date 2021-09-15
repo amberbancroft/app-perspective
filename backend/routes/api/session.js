@@ -28,7 +28,7 @@ router.post(
 
     const user = await User.login({ credential, password });
 
-    // console.log("this is user", user);
+    console.log("this is user", user);
 
     if (!user) {
       const err = new Error('Login failed');
