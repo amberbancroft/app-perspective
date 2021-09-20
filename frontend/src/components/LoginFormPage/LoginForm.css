@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 85vh;
     background: url(../SplashPage/images/img_1.JPG);
     background-size: cover;
     background-position: center;
@@ -12,7 +12,7 @@
 .form{
     display: flex;
     flex-direction: column;
-    width: 60vw;
+    width: 40vw;
     height: 70vh;
     justify-content: center;
     align-items: center;
@@ -40,6 +40,10 @@ input{
     border-radius: 5px;
     height: 55px;
     width: 300px;
+    
+}
+.Input{
+    outline: none;
 }
 #logIn-btn{
     margin-top: 10px;
