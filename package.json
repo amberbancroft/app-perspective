@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/amberbancroft/flicker-clone#readme",
   "dependencies": {
+    "@mui/icons-material": "^5.0.0",
+    "@mui/material": "^5.0.0",
     "dotenv": "^10.0.0"
   }
 }
