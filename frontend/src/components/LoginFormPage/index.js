@@ -12,7 +12,7 @@ function LoginFormPage() {
     const [errors, setErrors] = useState([]);
 
     if (sessionUser) return (
-        <Redirect to="/" />
+        <Redirect to="/home" />
     );
 
     const handleSubmit = (e) => {
@@ -35,26 +35,27 @@ function LoginFormPage() {
                 <h2 id='welcome'>Welcome Back!</h2>
                 <label>
                     Username or Email
-
-                <div id="user-email" className="loginInput">
-            <input
-                        type="text"
-                        value={credential}
-                        onChange={(e) => setCredential(e.target.value)}
-                        required
-                    />
-                </div>
+                    <div className="loginInput">
+                        <input
+                            type="text"
+                            className="Input"
+                            value={credential}
+                            onChange={(e) => setCredential(e.target.value)}
+                            required
+                        />
+                    </div>
                 </label>
                 <label>
                     Password
-                <div id="password" className="loginInput">
-            <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
+                    <div className="loginInput">
+                        <input
+                            type="password"
+                            className="Input"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
                 </label>
                 <button id='logIn-btn' type="submit">Sign In</button>
             </form>
