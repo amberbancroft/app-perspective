@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import DemoUser from "../DemoUser";
 import './LoginForm.css';
 
 function LoginFormPage() {
@@ -34,11 +35,10 @@ function LoginFormPage() {
                 <i className="fas fa-camera-retro" id='cameraImage2'></i>
                 <h2 id='welcome'>Welcome Back!</h2>
                 <label>
-                    Username or Email
                     <div className="loginInput">
                         <input
                             type="text"
-                            className="Input"
+                            placeholder="Username or Email"
                             value={credential}
                             onChange={(e) => setCredential(e.target.value)}
                             required
@@ -46,11 +46,10 @@ function LoginFormPage() {
                     </div>
                 </label>
                 <label>
-                    Password
                     <div className="loginInput">
                         <input
                             type="password"
-                            className="Input"
+                            placeholder="Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
@@ -59,6 +58,9 @@ function LoginFormPage() {
                 </label>
                 <button id='logIn-btn' type="submit">Sign In</button>
             </form>
+            <div className="DemoButton--container"> 
+                <DemoUser/>
+            </div>
         </div>
     );
 }

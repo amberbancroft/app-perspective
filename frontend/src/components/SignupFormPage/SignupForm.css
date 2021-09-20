@@ -23,13 +23,17 @@
     mix-blend-mode: screen;
     border-radius: 10px;
 }
-input{
+
+
+/* input{
     margin-top: 20px;
     height: 30px;
     background-color: transparent;
     width: 97%;
     border:none;
-}
+    outline: none;
+} */
+
 .loginInput{
     margin: 10px;
     color: black;
@@ -38,7 +42,9 @@ input{
     border-radius: 5px;
     height: 55px;
     width: 300px;
+    
 }
+
 #logIn-btn{
     margin-top: 10px;
     color: white;

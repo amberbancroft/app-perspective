@@ -23,11 +23,18 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
-    imgUrl: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // imgUrl: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     hashedPassword: {
+      type: DataTypes.STRING.BINARY,
+      allowNull: false,
+      validate: {
+        len: [60, 60]
+      },
+    },
+    repeatPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
       validate: {
@@ -59,6 +66,10 @@ module.exports = (sequelize, DataTypes) => {
   User.prototype.validatePassword = function (password) {
     return bcrypt.compareSync(password, this.hashedPassword.toString());
   };
+
+  // User.prototype.validatePassword = function (repeatPassword) {
+  //   return bcrypt.compareSync(repeatPassword, this.hashedPassword.toString());
+  // };
 
   User.getCurrentUserById = async function (id) {
     return await User.scope('currentUser').findByPk(id);

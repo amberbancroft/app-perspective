@@ -3,6 +3,7 @@ const router = require('express').Router();
 const { Photo, User } = require("../../db/models");
 const { singleMulterUpload, singlePublicFileUpload} = require('../../awsS3');
 
+
 //Photos home Page
 router.get('/', async (req, res) => {
     // Find all photos in backend
@@ -27,7 +28,7 @@ router.get('/:id(\\d+)', async (req, res) => {
     const singlePhoto = await Photo.findByPk(photoId,  {
         include: User
     })
-    console.log("*********this is single photo ****************", singlePhoto);
+    // console.log("*********this is single photo ****************", singlePhoto);
 
     // Passing the Array to the store in the frontend
     return res.json(singlePhoto);
