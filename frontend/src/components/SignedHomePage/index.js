@@ -15,7 +15,6 @@ function Home(){
 	// importing the reducer
 	const photosList = useSelector(state => state.photos);
 	// const firstPhoto = photosList[1].imgUrl;
-	// console.log(photosList[1].imgUrl);
 	
 	
 	// call built in hooks to redirect and sends the updates

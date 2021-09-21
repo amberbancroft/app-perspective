@@ -16,7 +16,6 @@ router.get('/user/:id(\\d+)', async (req, res) => {
     },
     include: Photo
   });
-  // console.log("***************************************", userAlbums);
   // Passing the Array to the store in the frontend
   return res.json(userAlbums);
 });
@@ -37,7 +36,6 @@ router.get('/:id(\\d+)', async (req, res) => {
       photos[eachPhoto.id] = eachPhoto
     });
 
-    // console.log('single album', photos)
     // Passing the Array to the store in the frontend
     return res.json({singleAlbum, photos});
 });
@@ -51,7 +49,6 @@ router.get('/:id(\\d+)/edit', async (req, res) => {
   const singleAlbumForEdit = await Album.findByPk(albumId,  {
       include: User
   })
-  // console.log("***************************************", singleAlbumForEdit);
 
   // Passing the Array to the store in the frontend
   return res.json(singleAlbumForEdit);

@@ -28,23 +28,29 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
     .withMessage('Password must be 6 characters or more.'),
+  // Added this in for confirmation validation.
+  check('repeatPassword')
+  .exists({ checkFalsy: true })
+  .matches('password')
+  .withMessage('Confirm password does not match password.'),
   handleValidationErrors,
 ];
 
 // Sign up
 // Post /api/users ---Sign up
 router.post(
-  "/",
-  singleMulterUpload("image"),
+  '/',
+  singleMulterUpload('image'),
   validateSignup,
   asyncHandler(async (req, res) => {
-    const { email, password, username } = req.body;
-    const profileImageUrl = await singlePublicFileUpload(req.file);
+    const { username, email, password, repeatPassword } = req.body;
+    // const profileImageUrl = await singlePublicFileUpload(req.file);
     const user = await User.signup({
       username,
       email,
       password,
-      profileImageUrl,
+      repeatPassword,
+      // profileImageUrl,
     });
 
     setTokenCookie(res, user);
@@ -68,7 +74,7 @@ router.get('/:id(\\d+)', async (req, res) => {
     },
     include: User,
   });
-  // console.log("***************************************", userPhotos);
+
   // Passing the Array to the store in the frontend
   return res.json(userPhotos);
 });
@@ -85,7 +91,7 @@ router.get('/:id(\\d+)', async (req, res) => {
         userId
     },
   });
-  // console.log("***************************************", userPhotos);
+
   // Passing the Array to the store in the frontend
   return res.json(userInfo);
 });

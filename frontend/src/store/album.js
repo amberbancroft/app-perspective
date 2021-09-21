@@ -40,7 +40,6 @@ export const getUserAlbums = (userId) => async dispatch => {
   
     if (response.ok) {
       const userAlbums = await response.json();
-    //   console.log("user album list here", userAlbums);
       dispatch(profile(userAlbums));
     }
 };
@@ -50,7 +49,6 @@ export const getAlbum = (albumId) => async dispatch => {
   
     if (response.ok) {
       const albumData = await response.json();
-    //   console.log("single album", albumData);
       dispatch(loadSingleAlbum(albumData));
     }
 };

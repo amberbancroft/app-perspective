@@ -19,8 +19,8 @@ const removeUser = () => {
 
 // user_actions.js
 export const createUser = (user) => async (dispatch) => {
-    // images, image, 
-  const { username, email, password, repeatPassword } = user;
+    // const { username, email, password, repeatPassword, images, image, } = user;
+  const { username, email, password, repeatPassword, image, } = user;
   const formData = new FormData();
   formData.append("username", username);
   formData.append("email", email);
@@ -35,7 +35,7 @@ export const createUser = (user) => async (dispatch) => {
 //   }
 
   // for single file
-//   if (image) formData.append("image", image);
+  if (image) formData.append("image", image);
 
   const res = await csrfFetch(`/api/users/`, {
     method: "POST",

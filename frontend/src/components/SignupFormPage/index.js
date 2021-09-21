@@ -1,7 +1,8 @@
 // CreateUser.js file
 import { useState } from "react";
 import { createUser } from "../../store/session";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const CreateUser = () => {
   const [username, setUsername] = useState("");
@@ -14,7 +15,7 @@ const CreateUser = () => {
   const [errors, setErrors] = useState([]);
 
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user);
+  // const user = useSelector((state) => state.session.user);
 
   const handleSubmit = (e) => {
     e.preventDefault();

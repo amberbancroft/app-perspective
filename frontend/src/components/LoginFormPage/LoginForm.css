@@ -58,6 +58,7 @@ input{
     border-radius: 7px;
     width: 120px;
     height: 40px;
+    cursor: pointer;
 }
 
 h2{

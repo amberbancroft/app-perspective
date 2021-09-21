@@ -46,7 +46,6 @@ export const getPhotos = () => async dispatch => {
   
     if (response.ok) {
       const photos = await response.json();
-      // console.log("list here", photos);
       dispatch(load(photos));
     }
 };
@@ -56,7 +55,6 @@ export const getUserPhotos = (userId) => async dispatch => {
 
   if (response.ok) {
     const userPhotos = await response.json();
-    // console.log("user photo list here", userPhotos);
     dispatch(profile(userPhotos));
   }
 };
@@ -66,7 +64,6 @@ export const getPhoto = (photoId) => async dispatch => {
 
   if (response.ok) {
     const photoData = await response.json();
-    // console.log("single photo", photoData);
     dispatch(loadSinglePhoto(photoData));
   }
 };
@@ -80,7 +77,6 @@ export const getPhotoForEdit = (photo) => async dispatch => {
 
     if (response.ok) {
       const title = await response.json();
-      // console.log("this is the title", title);
       dispatch(loadSinglePhotoForEdit(title));
     }
 };

@@ -22,13 +22,11 @@ router.get('/', async (req, res) => {
 router.get('/:id(\\d+)', async (req, res) => {
     // extract the photoId
     const photoId = parseInt(req.params.id,10);
-    // console.log("***************************************", photoId);
 
     // Find all photos in backend
     const singlePhoto = await Photo.findByPk(photoId,  {
         include: User
     })
-    // console.log("*********this is single photo ****************", singlePhoto);
 
     // Passing the Array to the store in the frontend
     return res.json(singlePhoto);
@@ -43,7 +41,6 @@ router.get('/:id(\\d+)/edit', async (req, res) => {
     const singlePhotoForEdit = await Photo.findByPk(photoId,  {
         include: User
     })
-    // console.log("***************************************", singlePhoto);
 
     // Passing the Array to the store in the frontend
     return res.json(singlePhotoForEdit);
@@ -83,7 +80,6 @@ router.post(
     async (req, res) => {
       const { userId, title } = req.body;
       const imgUrl = await singlePublicFileUpload(req.file)
-    //   console.log("!!!!!!!!!!!!", imgUrl);
       const data = {userId, title, imgUrl }
       const newPhoto = await Photo.create(data);
       const photo = await Photo.findByPk(newPhoto.id, {
