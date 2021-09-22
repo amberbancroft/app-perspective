@@ -27,10 +27,8 @@ function LoginFormPage() {
 
     return (
         <div className='form-container'>
+            
             <form className='form' onSubmit= { handleSubmit } >
-                <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
 
                 <i className='fas fa-camera-retro' id='cameraImage2'></i>
                 <h2 className='modal--title' > Welcome Back! </h2>
@@ -57,6 +55,10 @@ function LoginFormPage() {
                             onChange= { (e) => setPassword(e.target.value) }
                             required
                         />
+                    </div>
+
+                    <div className= 'modal--form--errors'>  
+                        { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
                     </div>
                 
                 <button id='logIn-btn' type='submit'> Sign In </button>

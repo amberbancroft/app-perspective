@@ -48,8 +48,6 @@ const CreateUser = () => {
   return (
     <div className='form-container'>
 
-      {errors.length > 0 && errors.map((error) => <div key={error}>{error}</div>)}
-
       <form className='form' onSubmit= { handleSubmit } >
 
         <i className='fas fa-camera-retro' id='cameraImage2' />
@@ -109,7 +107,11 @@ const CreateUser = () => {
               type="file"
               multiple
               onChange={updateFiles} />
-          </label> */}
+        </label> */}
+
+        <div className= 'modal--form--errors'>  
+          { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
+        </div>
 
         <button id='logIn-btn' type='submit'> Create User </button>
 
