@@ -1,3 +1,4 @@
+/* Classes */
 .form-container{
     margin-top: 0;
     display: flex;
@@ -9,6 +10,7 @@
     background-position: center;
     
 }
+
 .form{
     display: flex;
     flex-direction: column;
@@ -25,13 +27,15 @@
     mix-blend-mode: screen;
     border-radius: 10px;   
 }
-input{
+
+.input--container{
     margin-top: 20px;
     height: 30px;
     background-color: transparent;
     width: 97%;
     border:none;
 }
+
 .loginInput{
     margin: 10px;
     color: black;
@@ -39,12 +43,15 @@ input{
     border:  solid 2px;
     border-radius: 5px;
     height: 55px;
-    width: 300px;
-    
+    width: 300px;  
 }
-.Input{
-    outline: none;
+
+.modal--title{
+    margin: 10px 0px;
 }
+
+
+/* Ids */
 #logIn-btn{
     margin-top: 10px;
     color: white;
@@ -52,10 +59,7 @@ input{
     border-radius: 7px;
     width: 120px;
     height: 40px;
-}
-
-h2{
-    margin: 10px 0px;
+    cursor: pointer;
 }
 
 #cameraImage2{

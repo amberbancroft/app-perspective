@@ -1,4 +1,4 @@
-.form-container{
+/* .form-container{
     margin-top: 0;
     display: flex;
     justify-content: center;
@@ -22,15 +22,15 @@
     padding: 20px 40px;
     mix-blend-mode: screen;
     border-radius: 10px;
-}
-input{
+} */
+/* input{
     margin-top: 20px;
     height: 30px;
     background-color: transparent;
     width: 97%;
     border:none;
-}
-.loginInput{
+} */
+/* .loginInput{
     margin: 10px;
     color: black;
     background-color: rgba(147,112,75,.3);
@@ -38,8 +38,8 @@ input{
     border-radius: 5px;
     height: 55px;
     width: 300px;
-}
-#logIn-btn{
+} */
+/* #logIn-btn{
     margin-top: 10px;
     color: white;
     background-color: black;
@@ -54,4 +54,4 @@ h2{
 
 #cameraImage2{
     margin-top: -20px;
-}
+} */

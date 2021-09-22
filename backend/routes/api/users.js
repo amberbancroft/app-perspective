@@ -28,6 +28,16 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
     .withMessage('Password must be 6 characters or more.'),
+  // Added it here for the confirmPassword field
+  check("confirmPassword")
+  .exists({ checkFalsy: true })
+  .withMessage("Confirm Password cannot be empty")
+  .custom((value, { req }) => {
+    if (value !== req.body.password) {
+      throw new Error("Confirm Password does not match Password");
+    }
+    return true;
+  }),
   handleValidationErrors,
 ];
 
@@ -89,7 +99,6 @@ router.get('/:id(\\d+)', async (req, res) => {
   // Passing the Array to the store in the frontend
   return res.json(userInfo);
 });
-
  
 // Exports
 module.exports = router;
