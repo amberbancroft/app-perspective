@@ -34,7 +34,7 @@ function SplashPage(){
     return (
         <div className='inspiration-container'>
             <h2>Find Your Inspiration</h2>
-            <DemoUser></DemoUser>
+            <DemoUser/>
         </div>
     );
 }

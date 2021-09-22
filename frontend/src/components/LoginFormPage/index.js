@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
+import DemoUser from "../DemoUser";
 
 function LoginFormPage() {
     const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function LoginFormPage() {
 
     return (
         <div className='form-container'>
-            
+
             <form className='form' onSubmit= { handleSubmit } >
 
                 <i className='fas fa-camera-retro' id='cameraImage2'></i>
@@ -64,6 +65,9 @@ function LoginFormPage() {
                 <button id='logIn-btn' type='submit'> Sign In </button>
 
             </form>
+            <div className='DemoButton--container'> 
+                <DemoUser/>
+            </div>
         </div>
     );
 }

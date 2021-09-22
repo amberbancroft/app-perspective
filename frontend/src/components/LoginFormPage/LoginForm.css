@@ -1,5 +1,7 @@
 /* Classes */
 .form-container{
+    display: flex;
+    flex-direction: column;
     margin-top: 0;
     display: flex;
     justify-content: center;
@@ -7,8 +9,7 @@
     height: 85vh;
     background: url(../SplashPage/images/img_1.JPG);
     background-size: cover;
-    background-position: center;
-    
+    background-position: center;  
 }
 
 .form{
@@ -34,6 +35,7 @@
     background-color: transparent;
     width: 97%;
     border:none;
+    outline: none;
 }
 
 .loginInput{
@@ -55,6 +57,14 @@
     padding: 5px 0px;
 }
 
+.DemoButton--container{
+    position: absolute;
+    margin-top: 360px;
+}
+
+.demo-btn{
+    width: 120px;
+}
 
 /* Ids */
 #logIn-btn{
