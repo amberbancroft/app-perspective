@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { createUser } from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
+import '../LoginFormPage/LoginForm.css';
 
 const CreateUser = () => {
   const [username, setUsername] = useState('');

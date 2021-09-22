@@ -65,9 +65,11 @@ function LoginFormPage() {
                 <button id='logIn-btn' type='submit'> Sign In </button>
 
             </form>
+
             <div className='DemoButton--container'> 
                 <DemoUser/>
             </div>
+            
         </div>
     );
 }
