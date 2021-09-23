@@ -5,7 +5,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { Photo, User, Album } = require('../../db/models');
-const { singleMulterUpload } = require('../../awsS3');
+// const { singleMulterUpload } = require('../../awsS3');
 
 // Variable declaration
 const router = express.Router();
@@ -45,17 +45,17 @@ const validateSignup = [
 // Post /api/users ---Sign up
 router.post(
   "/",
-  singleMulterUpload("image"),
+  // singleMulterUpload("image"),
   validateSignup,
   asyncHandler(async (req, res) => {
-    const { email, password, username } = req.body;
-    const profileImageUrl = await singlePublicFileUpload(req.file);
-    // console.log('DIS WHAT YOU LOOKING FOR',profileImageUrl );
+    const { username, email, password } = req.body;
+    // const profileImageUrl = await singlePublicFileUpload(req.file);
+
     const user = await User.signup({
       username,
       email,
       password,
-      profileImageUrl,
+      // profileImageUrl,
     });
 
     setTokenCookie(res, user);

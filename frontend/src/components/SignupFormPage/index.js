@@ -8,7 +8,7 @@ const CreateUser = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [image, setImage] = useState(null);
+  // const [image, setImage] = useState(null);
   // for multuple file upload
   //   const [images, setImages] = useState([])
   const [errors, setErrors] = useState([]);
@@ -19,12 +19,12 @@ const CreateUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let newErrors = [];
-    dispatch(createUser({ username, email, password, image }))
+    dispatch(createUser({ username, email, password }))
       .then(() => {
         setUsername('');
         setEmail('');
         setPassword('');
-        setImage(null);
+        // setImage(null);
       })
       .catch(async (res) => {
         const data = await res.json();
@@ -35,10 +35,10 @@ const CreateUser = () => {
       });
   };
 
-  const updateFile = (e) => {
-    const file = e.target.files[0];
-    if (file) setImage(file);
-  };
+  // const updateFile = (e) => {
+  //   const file = e.target.files[0];
+  //   if (file) setImage(file);
+  // };
 
   // for multiple file upload
   //   const updateFiles = (e) => {
@@ -98,9 +98,9 @@ const CreateUser = () => {
           />
         </div> */}
 
-        <div className='loginInput'>
+        {/* <div className='loginInput'>
           <input className='input--container' type='file' onChange= { updateFile } />
-        </div>
+        </div> */}
 
         {/* <label>
             Multiple Upload
@@ -117,7 +117,7 @@ const CreateUser = () => {
         <button id='logIn-btn' type='submit'> Create User </button>
 
       </form>
-      <div>
+      {/* <div>
         {user && (
           <div>
             <h1>{user.username}</h1>
@@ -128,7 +128,7 @@ const CreateUser = () => {
             />
           </div>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
