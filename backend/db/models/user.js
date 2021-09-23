@@ -25,7 +25,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     imgUrl: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // Changed default image and making image upload mandatory
+      allowNull: true,
+      defaultValue: 'https://app-perspective.s3.us-west-1.amazonaws.com/anonymous-avatar.jpeg',
     },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,

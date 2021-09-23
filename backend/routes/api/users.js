@@ -29,15 +29,15 @@ const validateSignup = [
     .isLength({ min: 6 })
     .withMessage('Password must be 6 characters or more.'),
   // Added it here for the confirmPassword field
-  check("confirmPassword")
-  .exists({ checkFalsy: true })
-  .withMessage("Confirm Password cannot be empty")
-  .custom((value, { req }) => {
-    if (value !== req.body.password) {
-      throw new Error("Confirm Password does not match Password");
-    }
-    return true;
-  }),
+  // check("confirmPassword")
+  // .exists({ checkFalsy: true })
+  // .withMessage("Confirm Password cannot be empty")
+  // .custom((value, { req }) => {
+  //   if (value !== req.body.password) {
+  //     throw new Error("Confirm Password does not match Password");
+  //   }
+  //   return true;
+  // }),
   handleValidationErrors,
 ];
 
@@ -50,6 +50,7 @@ router.post(
   asyncHandler(async (req, res) => {
     const { email, password, username } = req.body;
     const profileImageUrl = await singlePublicFileUpload(req.file);
+    // console.log('DIS WHAT YOU LOOKING FOR',profileImageUrl );
     const user = await User.signup({
       username,
       email,
