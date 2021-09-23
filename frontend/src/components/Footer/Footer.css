@@ -1,18 +1,20 @@
 .footer-container{
     display: flex;
-    justify-content:flex-end;
+    justify-content:flex-start;
     align-items: center; 
     background-color: rgba(147,112,75,.3);
     height: 64px;
 }
-#footer-img{
-    margin-right: 8px;
-}
-#github-button{
+
+.link--icon{
     color: white;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    margin-right: 30px;
+    margin-left: 10px;
+    /* margin-right: 10px; */
     font-size: 20px;
+}
+
+#signature--footer{
+    color: white;
+    margin-left: 10px;
 }

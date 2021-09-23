@@ -3,7 +3,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: 110vh;
+    height: 85vh;
     transition-duration: 4s;
     background-size: cover;
     background-position: center;
@@ -32,6 +32,7 @@
     text-align: center;
     font-weight: bold;
     border-color: transparent;
+    cursor: pointer;
 }
 .demo-btn:hover{
     background-color: black;

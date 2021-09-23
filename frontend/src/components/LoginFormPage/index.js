@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
+import DemoUser from "../DemoUser";
 
 function LoginFormPage() {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ function LoginFormPage() {
     const [errors, setErrors] = useState([]);
 
     if (sessionUser) return (
-        <Redirect to="/" />
+        <Redirect to="/home" />
     );
 
     const handleSubmit = (e) => {
@@ -27,37 +28,48 @@ function LoginFormPage() {
 
     return (
         <div className='form-container'>
-            <form className="form" onSubmit={handleSubmit}>
-                <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
-                <i className="fas fa-camera-retro" id='cameraImage2'></i>
-                <h2 id='welcome'>Welcome Back!</h2>
-                <label>
-                    Username or Email
 
-                <div id="user-email" className="loginInput">
-            <input
-                        type="text"
-                        value={credential}
-                        onChange={(e) => setCredential(e.target.value)}
-                        required
-                    />
-                </div>
-                </label>
-                <label>
-                    Password
-                <div id="password" className="loginInput">
-            <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                </label>
-                <button id='logIn-btn' type="submit">Sign In</button>
+            <form className='form' onSubmit= { handleSubmit } >
+
+                <i className='fas fa-camera-retro' id='cameraImage2'></i>
+                <h2 className='modal--title' > Welcome Back! </h2>
+
+                
+                    <div className='loginInput'>
+                        <input
+                            type='text'
+                            className='input--container'
+                            placeholder='Username or Email'
+                            value= { credential }
+                            onChange= { (e) => setCredential(e.target.value) }
+                            required
+                        />
+                    </div>
+               
+                
+                    <div className='loginInput'>
+                        <input
+                            type='password'
+                            className='input--container'
+                            placeholder='Password'
+                            value= { password }
+                            onChange= { (e) => setPassword(e.target.value) }
+                            required
+                        />
+                    </div>
+
+                    <div className= 'modal--form--errors'>  
+                        { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
+                    </div>
+                
+                <button id='logIn-btn' type='submit'> Sign In </button>
+
             </form>
+
+            <div className='DemoButton--container'> 
+                <DemoUser/>
+            </div>
+            
         </div>
     );
 }

@@ -1,18 +1,21 @@
+/* Classes */
 .form-container{
+    display: flex;
+    flex-direction: column;
     margin-top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 85vh;
     background: url(../SplashPage/images/img_1.JPG);
     background-size: cover;
-    background-position: center;
-    
+    background-position: center;  
 }
+
 .form{
     display: flex;
     flex-direction: column;
-    width: 60vw;
+    width: 40vw;
     height: 70vh;
     justify-content: center;
     align-items: center;
@@ -25,13 +28,16 @@
     mix-blend-mode: screen;
     border-radius: 10px;   
 }
-input{
+
+.input--container{
     margin-top: 20px;
     height: 30px;
     background-color: transparent;
     width: 97%;
     border:none;
+    outline: none;
 }
+
 .loginInput{
     margin: 10px;
     color: black;
@@ -39,8 +45,33 @@ input{
     border:  solid 2px;
     border-radius: 5px;
     height: 55px;
-    width: 300px;
+    width: 300px;  
 }
+
+.modal--title{
+    margin: 10px 0px;
+}
+
+.modal--form--errors{
+    font-size: 20px;
+    padding: 5px 0px;
+}
+
+.DemoButton--container{
+    position: absolute;
+    margin-top: 360px;
+}
+
+.demo-btn{
+    width: 120px;
+}
+
+::placeholder {
+    color: black !important;
+    font-size: 1.5em;
+  }
+
+/* Ids */
 #logIn-btn{
     margin-top: 10px;
     color: white;
@@ -48,10 +79,7 @@ input{
     border-radius: 7px;
     width: 120px;
     height: 40px;
-}
-
-h2{
-    margin: 10px 0px;
+    cursor: pointer;
 }
 
 #cameraImage2{

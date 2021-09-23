@@ -1,12 +1,21 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import './Footer.css';
 
 function Footer(){
   return (
     <div className='footer-container'>
-    <i className="fab fa-github" id='footer-img'></i>
-    <a id='github-button' href="https://github.com/amberbancroft">Developer</a>
+
+      <a className= 'link--icon' href= { `https://github.com/amberbancroft` }>
+        <GitHubIcon/>
+      </a>
+
+      <a className= 'link--icon' href= { `https://www.linkedin.com/in/amber-bancroft/` }>
+          <LinkedInIcon/>
+      </a>
+
+      <h3 id= 'signature--footer'>Developed by Amber Bancroft</h3>
     </div>
   );
 };
