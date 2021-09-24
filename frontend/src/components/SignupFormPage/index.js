@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createUser } from '../../store/session';
+import { signup } from '../../store/session';
 // import { useDispatch, useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import '../LoginFormPage/LoginForm.css';
@@ -19,7 +19,7 @@ const CreateUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let newErrors = [];
-    dispatch(createUser({ username, email, password }))
+    dispatch(signup({ username, email, password }))
       .then(() => {
         setUsername('');
         setEmail('');
