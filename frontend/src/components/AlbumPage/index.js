@@ -9,7 +9,7 @@ import { useParams, useHistory, Link } from "react-router-dom";
 // ProfilePage component
 function GettingDataToLoad({photoId}){
 	const { albumId } = useParams();
-	const userId = useSelector(state => state.session.user);
+	// const userId = useSelector(state => state.session.user);
 
 	const dispatch = useDispatch();
 	const history = useHistory();
