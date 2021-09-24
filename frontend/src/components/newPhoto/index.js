@@ -1,13 +1,13 @@
 // Importing
 import React from 'react';
-import "./newPhoto.css"
-import { useState } from "react";
-import { addSinglePhoto } from "../../store/photo";
-import { useDispatch, useSelector } from "react-redux";
+import './newPhoto.css';
+import { useState } from 'react';
+import { addSinglePhoto } from '../../store/photo';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
   function NewPhoto () {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
   const [imgUrl, setImgUrl] = useState(null);
 
   const dispatch = useDispatch();
@@ -27,29 +27,36 @@ import { useHistory } from 'react-router';
 
   return (
     <div className='form-container'>
-      <form
-        className="form"
-        style={{ display: "flex", flexFlow: "column" }}
-        onSubmit={handleSubmit}
-      >
-        <i className="fas fa-camera-retro" id='cameraImage2'></i>
-        <h2 id='welcome'>Express Yourself</h2>
-        <label>
-            <div>
-            <input
-                type="text"
-                placeholder="Title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-            />
-            </div> 
-        </label>
-        <div>
-            {/* <label> */}
-                <input type="file"  placeholder="Image URL" onChange={updateFile} />
-            {/* </label> */}
-        <button type="submit"> Post Photo </button>
+
+      <form className='form' onSubmit= { handleSubmit } >
+
+        <i className='fas fa-camera-retro' id='cameraImage2'/>
+        <h2 id='welcome'> Express Yourself </h2>
+
+        <div className='loginInput'>
+          <input
+              type='text'
+              className='input--container'
+              placeholder='Title'
+              value= { title }
+              onChange= { (e) => setTitle(e.target.value) }
+          />
+        </div> 
+        
+        <div className='loginInput'>
+         <input 
+            type='file' 
+            className='input--container' 
+            onChange= { updateFile } 
+          />
         </div>
+
+        {/* <div className= 'modal--form--errors'>  
+            { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
+        </div> */}
+
+        <button className='submit-btn' type='submit'> Post Photo </button>
+
       </form>
       <div>
         {/* {user && (

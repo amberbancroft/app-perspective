@@ -62,7 +62,7 @@ function LoginFormPage() {
                         { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
                     </div>
                 
-                <button id='logIn-btn' type='submit'> Sign In </button>
+                <button className='submit-btn' type='submit'> Sign In </button>
 
             </form>
 

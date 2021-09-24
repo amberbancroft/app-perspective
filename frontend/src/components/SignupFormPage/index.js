@@ -115,7 +115,7 @@ const CreateUser = () => {
           { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
         </div>
 
-        <button id='logIn-btn' type='submit'> Create User </button>
+        <button className='submit-btn' type='submit'> Create User </button>
 
       </form>
       {/* <div>
