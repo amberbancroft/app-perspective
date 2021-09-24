@@ -3,7 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
-import DemoUser from "../DemoUser";
+import DemoUser from '../DemoUser';
 
 function LoginFormPage() {
     const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function LoginFormPage() {
     const [errors, setErrors] = useState([]);
 
     if (sessionUser) return (
-        <Redirect to="/home" />
+        <Redirect to='/home' />
     );
 
     const handleSubmit = (e) => {

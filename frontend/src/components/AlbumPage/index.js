@@ -1,13 +1,13 @@
 // Importing
 import React from 'react';
-import "./album.css"
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAlbum, deleteAlbumz } from '../../store/album';
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, useHistory, Link } from 'react-router-dom';
+import './album.css';
 
-// ProfilePage component
-function GettingDataToLoad({photoId}){
+
+function GettingDataToLoad( { photoId } ){
 	const { albumId } = useParams();
 	// const userId = useSelector(state => state.session.user);
 
@@ -29,16 +29,21 @@ function GettingDataToLoad({photoId}){
 	return (
 		<>
 			<div>
-				<h2 className="header">Album Photos</h2>
-				<button className="control-bar-button" onClick={ editClick }> Edit </button>
-                <button className="control-bar-button" onClick={ deleteHelperFunction }> Delete </button>
+				<h2 className='header'> Album Photos </h2>
+				<button className='control-bar-button' onClick= { editClick }> Edit </button>
+                <button className='control-bar-button' onClick= { deleteHelperFunction }> Delete </button>
 			</div>
-			<div className="slider">
+
+			<div className='slider'>
 				{Object.values(photoId)?.map((albumPhotoArray,i) => {
 					return (
 						<div key={i} className='slides'>
 							<Link to={`/photos/${albumPhotoArray.id}`}>
-								<img id={`slides-${albumPhotoArray.id}`} src={albumPhotoArray.imgUrl} alt={`${albumPhotoArray.title}`} height="300px" width="400px"/>
+								<img 
+									id={`slides-${albumPhotoArray.id}`} 
+									src= { albumPhotoArray.imgUrl } 
+									alt= { `${albumPhotoArray.title}` } 
+									height="300px" width="400px"/>
 							</Link>
 						</div>
 					)

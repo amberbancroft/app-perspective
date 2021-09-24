@@ -1,6 +1,5 @@
 // Importing
 import React from 'react';
-import './newPhoto.css';
 import { useState } from 'react';
 import { addSinglePhoto } from '../../store/photo';
 import { useDispatch, useSelector } from 'react-redux';
@@ -40,6 +39,7 @@ import { useHistory } from 'react-router';
               placeholder='Title'
               value= { title }
               onChange= { (e) => setTitle(e.target.value) }
+              required
           />
         </div> 
         
@@ -48,9 +48,11 @@ import { useHistory } from 'react-router';
             type='file' 
             className='input--container' 
             onChange= { updateFile } 
+            required
           />
         </div>
 
+        {/* Error Handling for later */}
         {/* <div className= 'modal--form--errors'>  
             { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
         </div> */}
@@ -58,18 +60,6 @@ import { useHistory } from 'react-router';
         <button className='submit-btn' type='submit'> Post Photo </button>
 
       </form>
-      <div>
-        {/* {user && (
-          <div>
-            <h1>{user.username}</h1>
-            <img
-              style={{ width: "150px" }}
-              src={user.profileImageUrl}
-              alt="profile"
-            />
-          </div>
-        )} */}
-      </div>
     </div>
   );
 };

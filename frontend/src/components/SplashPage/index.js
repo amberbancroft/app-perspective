@@ -1,10 +1,10 @@
-import DemoUser from "../DemoUser";
+import DemoUser from '../DemoUser';
 import React, { useEffect } from 'react';
-import image1 from "./images/img_1.JPG"
-import image2 from "./images/img_2.JPG"
-import image3 from "./images/img_3.JPG"
-import image4 from "./images/img_4.JPG"
-import "./SplashPage.css";
+import image1 from './images/img_1.JPG';
+import image2 from './images/img_2.JPG';
+import image3 from './images/img_3.JPG';
+import image4 from './images/img_4.JPG';
+import './SplashPage.css';
 
 function SplashPage(){
   
