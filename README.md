@@ -41,7 +41,7 @@ Perspective (a [Flickr](https://flickr.com/) clone) is a platform for users to t
         
         Upon arriving on the splashpage, users have the option to click the "Demo" button to be instantly logged in as the default demo user. This demo account allows them to navigate the application and all of it's authenticated features without formally creating their own account.
         
-        ![Demo User](frontend/src/components/SplashPage/images/demo.gif)
+        ![Demo User](https://user-images.githubusercontent.com/77598204/135175508-ddb1c3a5-d8a9-4889-9921-3616506b6d44.gif)
 * Photos
     * Uploading Photos
         
