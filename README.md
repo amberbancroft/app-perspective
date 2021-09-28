@@ -60,13 +60,13 @@ Perspective (a [Flickr](https://flickr.com/) clone) is a platform for users to t
 
       Authenticated users can delete the photos that they've posted by clicking the delete button. They will then be allowed to delete the desired photo.
       
-<!--       ![DeletePhoto](/images/AvocatiDelete.gif) -->
+![DeletePhoto](https://user-images.githubusercontent.com/77598204/135180252-9232328c-4a8a-47e1-b9d8-042f16c5e6e6.gif)
 
 
 ## Application Architecture
 
 ### Database Schema
-![Database](/images/DatabaseSchema.png)
+![Database](https://i.ibb.co/3RGTLWD/Screen-Shot-2021-05-20-at-2-12-49-PM.png)
 
 ### Frontend Overview
 The Perspective frontend was built entirely with vanilla JavaScript and CSS. We used a combination of form inputs and the Fetch API to provide a fully functional CRUD experience to our users. By utilizing Ajax we are also able to provide a seamlessly integrated experience to our users when they make comments, like stories, or follow other users.
