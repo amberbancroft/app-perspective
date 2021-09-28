@@ -23,11 +23,13 @@ Perspective (a [Flickr](https://flickr.com/) clone) is a platform for users to t
     * Javascript
     * React
     * Redux
+    * Material-Ui
     * CSS
 * Backend
     * Node.js
     * Express.js
     * PostgreSQL
+    * AWS
     * Heroku Deployment
 
 ## MVP Feature List
@@ -47,7 +49,7 @@ Perspective (a [Flickr](https://flickr.com/) clone) is a platform for users to t
         
         Authenticated users can upload their own photos, allowing other users to browse their work. To post a stpry, you will be prompted to input a title and an image file.
         
-        ![UploadingPhoto](/images/WriteThings.gif)
+        ![UploadingPhoto](https://user-images.githubusercontent.com/77598204/135177742-1c2e841e-25fe-4ca6-81c5-458beb0211c9.gif)
     * Editing Photos
     
       Authenticated users can edit the photos they have posted by clicking the edit button. They will then be allowed to edit the title of the desired photo.
