@@ -71,8 +71,7 @@
     font-size: 1.5em;
   }
 
-/* Ids */
-#logIn-btn{
+.submit-btn{
     margin-top: 10px;
     color: white;
     background-color: black;
@@ -82,6 +81,7 @@
     cursor: pointer;
 }
 
+/* Ids */
 #cameraImage2{
     margin-top: -20px;
 }

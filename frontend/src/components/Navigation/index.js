@@ -31,8 +31,8 @@ function Navigation({ isLoaded, user}){
   } else {
     sessionLinks = (
       <>
-        <NavLink className='navbar-button' id='logInButton'to="/login">Log In</NavLink>
-        <NavLink className='navbar-button' id='signUpButton' to="/signup">Sign Up</NavLink>
+        <NavLink className='navbar-button' id='logInButton'to='/login'>Log In</NavLink>
+        <NavLink className='navbar-button' id='signUpButton' to='/signup'>Sign Up</NavLink>
       </>
     );
   }
@@ -40,8 +40,8 @@ function Navigation({ isLoaded, user}){
   return (
       <li className='navbar-li'>
         <div className='home-container'>
-        <i className="fas fa-camera-retro" id='cameraImage'></i>
-        <NavLink className='navbar-button' id='home-button' exact to="/">Perspective</NavLink>
+        <i className='fas fa-camera-retro' id='cameraImage'></i>
+        <NavLink className='navbar-button' id='home-button' exact to='/'>Perspective</NavLink>
         </div>
         <div className='session-container'>
         {isLoaded && sessionLinks}

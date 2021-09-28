@@ -1,12 +1,12 @@
 // Importing
 import React from 'react';
-import "./PhotoPage.css"
+import './PhotoPage.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPhoto, deleteSinglePhoto} from '../../store/photo';
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from 'react-router-dom';
 
-// ProfilePage component 
+
 function PhotoPage(){
 	// Call the reducer to get the most current state
 	// connects the backend to the front end
@@ -42,20 +42,20 @@ function PhotoPage(){
 
 	return (
 		<>
-        <div className='control-bar'>
-            <h2 id='header'>{photo?.title}</h2>
-            <div className='button-container'>
-                {/* <a className='control-bar-button' id='edit-btn' href={`/users/${sessionUser.id}/edit`}> Edit </a> */}
-                <button className="control-bar-button" onClick={ photoClick }> Edit </button>
-                <button className="control-bar-button" onClick={deleteHelperFunction}> Delete </button>
-            </div>
-        </div>
-        <div className='img-container-2'>
-            <img className="solo-photo" src={photo?.imgUrl} alt={`${photo?.title}`}/>
-        </div>
+			<div className='img-container-2'>
+				<img className='solo-photo' src= { photo?.imgUrl } alt= { `${photo?.title}` }/>
+			</div>
+			
+			<div className='control-bar'>
+				<h2 id='header'> { photo?.title } </h2>
+				<div className='button-container'>
+					{/* <a className='control-bar-button' id='edit-btn' href={`/users/${sessionUser.id}/edit`}> Edit </a> */}
+					<button className='control-bar-button' onClick= { photoClick } > Edit </button>
+					<button className='control-bar-button' onClick= { deleteHelperFunction }> Delete </button>
+				</div>
+			</div>
 		</>
 	);
 };
   
-// Exporting
 export default PhotoPage;
