@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { signup } from '../../store/session';
 // import { useDispatch, useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import '../LoginFormPage/LoginForm.css';
 
 const CreateUser = () => {
@@ -14,6 +15,7 @@ const CreateUser = () => {
   const [errors, setErrors] = useState([]);
 
   const dispatch = useDispatch();
+  const history = useHistory();
   // const user = useSelector((state) => state.session.user);
 
   const handleSubmit = (e) => {
@@ -32,6 +34,9 @@ const CreateUser = () => {
           newErrors = data.errors;
           setErrors(newErrors);
         }
+        // else {
+        //   history.push('/home');
+        // }
       });
   };
 
