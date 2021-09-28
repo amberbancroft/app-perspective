@@ -1,6 +1,6 @@
 # Perspective
 
-![Perspective](/images/AvocatiLink.png)
+![Perspective](frontend/src/components/SplashPage/images/demo_button.gif)
 
 *By Amber Bancroft- [Visit Perspective](https://app-perspective.herokuapp.com/)*
 
