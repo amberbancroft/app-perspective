@@ -1,6 +1,6 @@
 # Perspective
 
-![Perspective](frontend/src/components/SplashPage/images/demo_button.gif)
+![Perspective](frontend/src/components/SplashPage/images/splashpage.png)
 
 *By Amber Bancroft- [Visit Perspective](https://app-perspective.herokuapp.com/)*
 
@@ -41,7 +41,7 @@ Perspective (a [Flickr](https://flickr.com/) clone) is a platform for users to t
         
         Upon arriving on the splashpage, users have the option to click the "Demo" button to be instantly logged in as the default demo user. This demo account allows them to navigate the application and all of it's authenticated features without formally creating their own account.
         
-        ![Demo User](https://media.giphy.com/media/j8XjFbzYHXOPk3n5IR/source.mp4?cid=790b76115d1791edd637166cc77f89730107001bb373693b&rid=source.mp4&ct=g)
+        ![Demo User](frontend/src/components/SplashPage/images/demo_button.mov)
 * Photos
     * Uploading Photos
         
