@@ -36,7 +36,7 @@ Perspective (a [Flickr](https://flickr.com/) clone) is a platform for users to t
         
         Users have the ability to sign up for an account by inputing the requested credentials.
         
-        ![Sign Up/Login](/images/AvocatiLoginSignUp.gif)
+        ![Sign Up/Login](https://user-images.githubusercontent.com/77598204/135176306-0cdfcc62-a601-45ae-8e85-4213af5f927d.gif)
     * Demo User
         
         Upon arriving on the splashpage, users have the option to click the "Demo" button to be instantly logged in as the default demo user. This demo account allows them to navigate the application and all of it's authenticated features without formally creating their own account.
