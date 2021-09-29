@@ -38,8 +38,13 @@ function Home() {
 									src={photo.imgUrl} alt={`${photo.title}`}
 									height='300px' width='400px'
 								/>
+
 							</Link>
-							<p className='titles'> {photo.title} </p>
+							<div className='img-list-info-container'>
+								<p className='titles'> {photo.title} </p>
+								<p className='username'> by {photo.User.username} </p>
+							</div>
+
 						</div>
 					)
 				})}

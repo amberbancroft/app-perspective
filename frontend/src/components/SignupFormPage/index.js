@@ -37,7 +37,7 @@ const CreateUser = () => {
   return (
     <div className='form-container'>
 
-      <form className='form' onSubmit= { handleSubmit } >
+      <form className='form' onSubmit={handleSubmit} >
 
         <i className='fas fa-camera-retro' id='cameraImage2' />
         <h2 className='modal--title'> Sign Up </h2>
@@ -48,7 +48,7 @@ const CreateUser = () => {
             className='input--container'
             placeholder='Username'
             value={username}
-            onChange= { (e) => setUsername(e.target.value) }
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
@@ -59,7 +59,7 @@ const CreateUser = () => {
             className='input--container'
             placeholder='Email'
             value={email}
-            onChange= { (e) => setEmail(e.target.value) }
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
@@ -69,8 +69,8 @@ const CreateUser = () => {
             type='password'
             className='input--container'
             placeholder='Password'
-            value= { password }
-            onChange= { (e) => setPassword(e.target.value) }
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
@@ -80,14 +80,14 @@ const CreateUser = () => {
             type='password'
             className='input--container'
             placeholder='Confirm Password'
-            value= { confirmPassword }
-            onChange= { (e) => setConfirmPassword(e.target.value) }
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
         </div>
 
-        <div className= 'modal--form--errors'>  
-          { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
+        <div className='modal--form--errors'>
+          {errors.map((error, idx) => <div key={idx} > {error} </div>)}
         </div>
 
         <button className='submit-btn' type='submit'> Create User </button>
