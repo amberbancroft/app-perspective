@@ -29,47 +29,47 @@ function LoginFormPage() {
     return (
         <div className='form-container'>
 
-            <form className='form' onSubmit= { handleSubmit } >
+            <form className='form' onSubmit={handleSubmit} >
 
                 <i className='fas fa-camera-retro' id='cameraImage2'></i>
                 <h2 className='modal--title' > Welcome Back! </h2>
 
-                
-                    <div className='loginInput'>
-                        <input
-                            type='text'
-                            className='input--container'
-                            placeholder='Username or Email'
-                            value= { credential }
-                            onChange= { (e) => setCredential(e.target.value) }
-                            required
-                        />
-                    </div>
-               
-                
-                    <div className='loginInput'>
-                        <input
-                            type='password'
-                            className='input--container'
-                            placeholder='Password'
-                            value= { password }
-                            onChange= { (e) => setPassword(e.target.value) }
-                            required
-                        />
-                    </div>
 
-                    <div className= 'modal--form--errors'>  
-                        { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
-                    </div>
-                
+                <div className='loginInput'>
+                    <input
+                        type='text'
+                        className='input--container'
+                        placeholder='Username or Email'
+                        value={credential}
+                        onChange={(e) => setCredential(e.target.value)}
+                        required
+                    />
+                </div>
+
+
+                <div className='loginInput'>
+                    <input
+                        type='password'
+                        className='input--container'
+                        placeholder='Password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div className='modal--form--errors'>
+                    {errors.map((error, idx) => <div key={idx} > {error} </div>)}
+                </div>
+
                 <button className='submit-btn' type='submit'> Sign In </button>
 
             </form>
 
-            <div className='DemoButton--container'> 
-                <DemoUser/>
+            <div className='DemoButton--container'>
+                <DemoUser />
             </div>
-            
+
         </div>
     );
 }
