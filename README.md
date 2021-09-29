@@ -1,6 +1,7 @@
 # Perspective
 
-![Perspective](frontend/src/components/SplashPage/images/splashpage.png)
+<!-- ![Perspective](frontend/src/components/SplashPage/images/splashpage.png) -->
+<img width="1440" alt="splashpage" src="https://user-images.githubusercontent.com/77598204/135312951-8b422903-fcb9-41fa-99f9-f20d5a3a61e6.png">
 
 *By Amber Bancroft- [Visit Perspective](https://app-perspective.herokuapp.com/)*
 
