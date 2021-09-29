@@ -1,6 +1,5 @@
 # Perspective
 
-<!-- ![Perspective](frontend/src/components/SplashPage/images/splashpage.png) -->
 <img width="1440" alt="splashpage" src="https://user-images.githubusercontent.com/77598204/135312951-8b422903-fcb9-41fa-99f9-f20d5a3a61e6.png">
 
 *By Amber Bancroft- [Visit Perspective](https://app-perspective.herokuapp.com/)*
@@ -55,13 +54,13 @@ Perspective (a [Flickr](https://flickr.com/) clone) is a platform for users to t
     
       Authenticated users can edit the photos they have posted by clicking the edit button. They will then be allowed to edit the title of the desired photo.
       
-      ![EditPhoto](https://user-images.githubusercontent.com/77598204/135178274-89a41f97-a6c4-4088-9926-e942c43057c2.gif)
+        ![EditPhoto](https://user-images.githubusercontent.com/77598204/135178274-89a41f97-a6c4-4088-9926-e942c43057c2.gif)
 
     * Deleting Photos
 
       Authenticated users can delete the photos that they've posted by clicking the delete button. They will then be allowed to delete the desired photo.
       
-![DeletePhoto](https://user-images.githubusercontent.com/77598204/135180252-9232328c-4a8a-47e1-b9d8-042f16c5e6e6.gif)
+        ![DeletePhoto](https://user-images.githubusercontent.com/77598204/135180252-9232328c-4a8a-47e1-b9d8-042f16c5e6e6.gif)
 
 
 ## Application Architecture
