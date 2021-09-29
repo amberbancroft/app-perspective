@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { signup } from '../../store/session';
 import { useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import '../LoginFormPage/LoginForm.css';
 
 const CreateUser = () => {
@@ -12,12 +12,14 @@ const CreateUser = () => {
   const [errors, setErrors] = useState([]);
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let newErrors = [];
     dispatch(signup({ username, email, password, confirmPassword }))
       .then(() => {
+        history.push('/home')
         setUsername('');
         setEmail('');
         setPassword('');
@@ -28,9 +30,6 @@ const CreateUser = () => {
         if (data && data.errors) {
           newErrors = data.errors;
           setErrors(newErrors);
-        }
-        else {
-          <Redirect to='/home' />
         }
       });
   };
