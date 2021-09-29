@@ -1,32 +1,27 @@
 import { useState } from 'react';
 import { signup } from '../../store/session';
-// import { useDispatch, useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import '../LoginFormPage/LoginForm.css';
 
 const CreateUser = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  // const [image, setImage] = useState(null);
-  // for multuple file upload
-  //   const [images, setImages] = useState([])
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
   const dispatch = useDispatch();
-  const history = useHistory();
-  // const user = useSelector((state) => state.session.user);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let newErrors = [];
-    dispatch(signup({ username, email, password }))
+    dispatch(signup({ username, email, password, confirmPassword }))
       .then(() => {
         setUsername('');
         setEmail('');
         setPassword('');
-        // setImage(null);
+        setConfirmPassword('');
       })
       .catch(async (res) => {
         const data = await res.json();
@@ -34,22 +29,11 @@ const CreateUser = () => {
           newErrors = data.errors;
           setErrors(newErrors);
         }
-        // else {
-        //   history.push('/home');
-        // }
+        else {
+          <Redirect to='/home' />
+        }
       });
   };
-
-  // const updateFile = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) setImage(file);
-  // };
-
-  // for multiple file upload
-  //   const updateFiles = (e) => {
-  //     const files = e.target.files;
-  //     setImages(files);
-  //   };
 
   return (
     <div className='form-container'>
@@ -92,28 +76,16 @@ const CreateUser = () => {
           />
         </div>
 
-        {/* <div className='loginInput'>
+        <div className='loginInput'>
           <input
             type='password'
             className='input--container'
             placeholder='Confirm Password'
-            value= { password }
-            onChange= { (e) => setPassword(e.target.value) }
+            value= { confirmPassword }
+            onChange= { (e) => setConfirmPassword(e.target.value) }
             required
           />
-        </div> */}
-
-        {/* <div className='loginInput'>
-          <input className='input--container' type='file' onChange= { updateFile } />
-        </div> */}
-
-        {/* <label>
-            Multiple Upload
-            <input
-              type="file"
-              multiple
-              onChange={updateFiles} />
-        </label> */}
+        </div>
 
         <div className= 'modal--form--errors'>  
           { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
@@ -122,18 +94,7 @@ const CreateUser = () => {
         <button className='submit-btn' type='submit'> Create User </button>
 
       </form>
-      {/* <div>
-        {user && (
-          <div>
-            <h1>{user.username}</h1>
-            <img
-              style={{ width: "150px" }}
-              src={user.profileImageUrl}
-              alt="profile"
-            />
-          </div>
-        )}
-      </div> */}
+
     </div>
   );
 };
