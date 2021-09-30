@@ -15,18 +15,18 @@ module.exports = {
       await queryInterface.bulkInsert('Albums', [
         {
           userId: 1,
-          title: 'Bad Boy photooooooos',
-          description:"poooooop",
+          title: 'The greatest album',
+          description:'not for the faint of heart',
         },
         {
           userId: 1,
           title: 'lalalalallaa',
-          description:"unicorns",
+          description:'nature awaits',
         },
         {
           userId: 2,
-          title: 'peeeepeeeeee',
-          description:"farts",
+          title: 'worms',
+          description:'for the animals',
         },
       ], {});
   },
