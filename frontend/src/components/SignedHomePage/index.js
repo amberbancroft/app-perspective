@@ -32,17 +32,17 @@ function Home() {
 				{Object.values(photosList).map((photo, i) => {
 					return (
 						<div key={i} className='img-container'>
-							<Link to={`photos/${photo.id}`}>
+							<Link to={`photos/${photo?.id}`}>
 								<img
 									className='individual-photo'
-									src={photo.imgUrl} alt={`${photo.title}`}
+									src={photo?.imgUrl} alt={`${photo?.title}`}
 									height='300px' width='400px'
 								/>
 
 							</Link>
 							<div className='img-list-info-container'>
-								<p className='titles'> {photo.title} </p>
-								<p className='username'> by {photo.User.username} </p>
+								<p className='titles'> {photo?.title} </p>
+								<p className='username'> by {photo?.User?.username} </p>
 							</div>
 
 						</div>
