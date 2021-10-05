@@ -33,21 +33,21 @@ Perspective (a [Flickr](https://flickr.com/) clone) is a platform for users to t
     * Heroku Deployment
 
 ## MVP Feature List
-* User Authentification
+* User Authentication
     * Sign Up/ Login
         
-        Users have the ability to sign up for an account by inputing the requested credentials.
+        Users have the ability to sign up for an account by inputting the requested credentials.
         
         ![Sign Up/Login](https://user-images.githubusercontent.com/77598204/135176306-0cdfcc62-a601-45ae-8e85-4213af5f927d.gif)
     * Demo User
         
-        Upon arriving on the splashpage, users have the option to click the "Demo" button to be instantly logged in as the default demo user. This demo account allows them to navigate the application and all of it's authenticated features without formally creating their own account.
+        Upon arriving on the splash page, users have the option to click the "Demo" button to be instantly logged in as the default demo user. This demo account allows them to navigate the application and all of it's authenticated features without formally creating their own account.
         
         ![Demo User](https://user-images.githubusercontent.com/77598204/135175508-ddb1c3a5-d8a9-4889-9921-3616506b6d44.gif)
 * Photos
     * Uploading Photos
         
-        Authenticated users can upload their own photos, allowing other users to browse their work. To post a story, you will be prompted to input a title and an image file.
+        Authenticated users can upload their own photos, allowing other users to browse their work. To post a photo, you will be prompted to input a title and an image file.
         
         ![UploadingPhoto](https://user-images.githubusercontent.com/77598204/135177742-1c2e841e-25fe-4ca6-81c5-458beb0211c9.gif)
     * Editing Photos
