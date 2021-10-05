@@ -16,7 +16,7 @@ module.exports = {
       {
         userId: 1,
         title: 'Mushy Magical Mushroom',
-        imgUrl: 'https://app-perspective-final.s3.us-west-1.amazonaws.com/mae-black-BnNfv-gCsck-unsplash.jpg',
+        imgUrl: 'https://app-perspective-final.s3.us-west-1.amazonaws.com/mushy.jpeg',
       },
       {
         userId: 1,
