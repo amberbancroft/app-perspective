@@ -20,7 +20,10 @@ function EditPhoto(){
 	const UpdateHelperFunction = (e) => {
 		e.preventDefault();
 		dispatch(getPhotoForEdit({title, photoId}));
+
+		// renders at the bottom of the home page change this!
 		history.push(`/home`);
+		// history.push(`/photo/${photoId}`);
 	}
 
 	// Helping function for delete
@@ -37,31 +40,19 @@ function EditPhoto(){
 				<img className='solo-photo' src= { photo?.imgUrl } alt= { `${photo?.title}` }/>
 			</div>
 
-			<div className='control-bar'>
+			<form  className='edit--photo--container' onSubmit= { UpdateHelperFunction } >
+				<input
+					type='text'
+					className='edit--container'
+					placeholder= {`photo?.title`}
+					value= { title }
+					onChange= { (e) => setTitle(e.target.value) }
+					required
+				/>
 
-				<form  onSubmit= { UpdateHelperFunction } >
-
-					<h2 id='header'> { photo?.title } </h2>
-
-					<div className='button-container'>
-						<button type='submit' className='control-bar-button'> Save </button>
-						<button className='control-bar-button' onClick= { deleteHelperFunction } > Delete </button>
-					</div>
-
-					<div className='loginInput'>
-						<input
-							type='text'
-							className='input--container'
-							placeholder='New Title'
-							value= { title }
-							onChange= { (e) => setTitle(e.target.value) }
-							required
-						/>
-					</div>
-
-				</form>
-
-			</div>
+				<button className='control-bar-button' type='submit'> Save </button>
+				<button className='control-bar-button' onClick= { deleteHelperFunction } > Delete </button>
+			</form>
 		</>
 	);
 };

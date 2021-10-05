@@ -1,0 +1,17 @@
+.edit--photo--container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px 0px;
+    margin-bottom: 10px;
+}
+
+.edit--container{
+    margin-right: 30px;
+    width: 30%;
+    font-size: 20px;
+    border-radius: 6px;
+    border-color: rgb(241, 241, 242);
+    caret-color: rgba(147,112,75,.3);
+    outline: none;
+}

@@ -8,6 +8,7 @@
     height: 690px;
     display: flex;
     justify-content: center;
+    /* padding-top: 20px; */
 }
 .control-bar{
     display: flex;
@@ -24,6 +25,7 @@
     width: 90px;
     align-self: center;
     margin: 2px 5px;
+    cursor: pointer;
 }
 /* .control-bar-button:hover{
     background-color: rgba(147,112,75,.3);;

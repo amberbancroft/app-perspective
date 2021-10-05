@@ -20,7 +20,7 @@ function DemoUser() {
         // got this from the store login thing
         const DemoUser = {
             credential: 'Bojack Horsman',
-            password: 'password',
+            password: 'password1',
         };
 
         // thunk that sends the new context back to the store

@@ -46,13 +46,11 @@ function PhotoPage(){
 				<img className='solo-photo' src= { photo?.imgUrl } alt= { `${photo?.title}` }/>
 			</div>
 			
-			<div className='control-bar'>
-				<h2 id='header'> { photo?.title } </h2>
-				<div className='button-container'>
-					{/* <a className='control-bar-button' id='edit-btn' href={`/users/${sessionUser.id}/edit`}> Edit </a> */}
-					<button className='control-bar-button' onClick= { photoClick } > Edit </button>
-					<button className='control-bar-button' onClick= { deleteHelperFunction }> Delete </button>
-				</div>
+			<div className='edit--photo--container'>
+				<h2 className='edit--container'> { photo?.title } </h2>
+
+				<button className='control-bar-button' onClick= { photoClick } > Edit </button>
+				<button className='control-bar-button' onClick= { deleteHelperFunction }> Delete </button>
 			</div>
 		</>
 	);
