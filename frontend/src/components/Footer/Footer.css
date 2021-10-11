@@ -3,7 +3,10 @@
     justify-content:flex-start;
     align-items: center; 
     background-color: rgba(147,112,75,.3);
-    height: 64px;
+    height: 57px;
+    /* position: absolute; */
+    bottom: 0;
+    width: 100%;
 }
 
 .link--icon{
